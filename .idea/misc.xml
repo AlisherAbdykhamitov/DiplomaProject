@@ -3,10 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/drawable/ic_android_black_24dp.xml" value="0.2265" />
+        <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/drawable/ic_baseline_monetization_on_24.xml" value="0.213" />
+        <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/drawable/ic_baseline_navigate_next_24.xml" value="0.2265" />
+        <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/drawable/next_btn.xml" value="0.2265" />
         <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/layout/activity_login.xml" value="0.21302083333333333" />
         <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/layout/activity_on_boarding.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/layout/activity_splash_screen.xml" value="0.2" />
         <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/layout/activity_user_dashboard.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/layout/slides_layout.xml" value="0.264" />
       </map>
     </option>
   </component>

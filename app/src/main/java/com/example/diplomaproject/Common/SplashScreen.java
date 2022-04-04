@@ -1,4 +1,4 @@
-package com.example.diplomaproject;
+package com.example.diplomaproject.Common;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.diplomaproject.R;
 import com.example.diplomaproject.User.UserDashboard;
 
 public class SplashScreen extends AppCompatActivity {
@@ -45,7 +46,7 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashScreen.this, UserDashboard.class);
+                Intent intent = new Intent(SplashScreen.this, OnBoarding.class);
                 startActivity(intent);
             }
         },SPLASH_TIMER);
