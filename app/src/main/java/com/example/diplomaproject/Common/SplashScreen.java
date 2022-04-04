@@ -3,6 +3,7 @@ package com.example.diplomaproject.Common;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.animation.Animation;
@@ -24,6 +25,7 @@ public class SplashScreen extends AppCompatActivity {
     //Animations
     Animation sideAnimation, bottomAnimation;
 
+    SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +48,27 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashScreen.this, OnBoarding.class);
-                startActivity(intent);
+                sharedPreferences = getSharedPreferences("onBoardingScreen", MODE_PRIVATE);
+                boolean isFirstTime = sharedPreferences.getBoolean("firstTime", true);
+
+                if(isFirstTime){
+
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putBoolean("firstTime", false);
+                    editor.commit();
+
+                    Intent intent = new Intent(SplashScreen.this, OnBoarding.class);
+                    startActivity(intent);
+                    finish();
+                }
+                else{
+                    Intent intent = new Intent(SplashScreen.this, OnBoarding.class);
+                    startActivity(intent);
+                    finish();
+
+                }
+
+
             }
         },SPLASH_TIMER);
 
