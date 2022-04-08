@@ -16,9 +16,6 @@
             android:name=".User.UserDashboard"
             android:exported="false" />
         <activity
-            android:name=".Common.SplashScreen"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true" >
             <intent-filter>
