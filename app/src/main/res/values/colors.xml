@@ -5,6 +5,14 @@
     <color name="colorAccent">#FFFFFF</color>
     <color name="colorBackground">#413e4f</color>
     <color name="colorText">#FFFFFF</color>
-    <color name="bn_baclground">#51d8c7</color>
+    <color name="bn_baclground">#B3E3DD</color>
     <color name = "background">#D2EBF1CE</color>
+    <color name = "textBlack">#000000</color>
+    <color name ="cat1">#B3E3DD</color>
+    <color name ="cat2">#FDC877</color>
+    <color name ="cat3">#5691EC</color>
+    <color name ="cat4">#673AB7</color>
+    <color name = "banner_background">#D2EFF1E6</color>
+    <color name ="banner2_background">#EFE7A1</color>
+    <color name = "help_background">#4C6563</color>
 </resources>
