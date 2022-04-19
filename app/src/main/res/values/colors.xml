@@ -15,4 +15,5 @@
     <color name = "banner_background">#D2EFF1E6</color>
     <color name ="banner2_background">#EFE7A1</color>
     <color name = "help_background">#4C6563</color>
+    <color name = "text_desc">#A1AEAD</color>
 </resources>
