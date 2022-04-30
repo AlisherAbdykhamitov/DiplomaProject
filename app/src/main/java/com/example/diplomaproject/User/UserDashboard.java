@@ -1,6 +1,7 @@
 package com.example.diplomaproject.User;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -8,20 +9,25 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.WindowManager;
 
-import com.example.diplomaproject.Adapter.CategAdapter;
+import com.example.diplomaproject.Adapter.CategoryAdapter;
 import com.example.diplomaproject.Adapter.CategoryHelperClass;
 import com.example.diplomaproject.Adapter.RecyclerAdapter;
 import com.example.diplomaproject.Adapter.RecyclerClass;
 import com.example.diplomaproject.R;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 
 public class UserDashboard extends AppCompatActivity {
 
-
+    //Var
     RecyclerView recyclerView, categoryView;
     RecyclerView.Adapter adapter;
     private GradientDrawable gradient1, gradient2, gradient3, gradient4;
+
+    //DrawMenu
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,14 +36,21 @@ public class UserDashboard extends AppCompatActivity {
         setContentView(R.layout.activity_user_dashboard);
 
         //Hooks
-        recyclerView = findViewById(R.id.recycler_view_first);
+       recyclerView = findViewById(R.id.recycler_view_first);
+       categoryView = findViewById(R.id.cat_recycler_view);
 
+       //Menu Hooks
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.navigation_view);
+
+       //Functions
         recyclerView();
         categoriesRecycler();
 
     }
 
-    private void recyclerView() {
+
+    private void recyclerView(){
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
@@ -51,9 +64,8 @@ public class UserDashboard extends AppCompatActivity {
         adapter = new RecyclerAdapter(recyclerClasses);
         recyclerView.setAdapter(adapter);
 
-        GradientDrawable gradient1 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xffeff400, 0xffaff600});
-    }
 
+    }
     private void categoriesRecycler() {
         //All Gradients
         gradient2 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xffd4cbe5, 0xffd4cbe5});
@@ -71,7 +83,7 @@ public class UserDashboard extends AppCompatActivity {
 
 
         categoryView.setHasFixedSize(true);
-        adapter = new CategAdapter(categoriesHelperClasses);
+        adapter = new CategoryAdapter(categoriesHelperClasses);
         categoryView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         categoryView.setAdapter(adapter);
 

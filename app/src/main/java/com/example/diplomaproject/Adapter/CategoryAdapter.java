@@ -1,5 +1,6 @@
 package com.example.diplomaproject.Adapter;
 
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,32 +15,29 @@ import com.example.diplomaproject.R;
 
 import java.util.ArrayList;
 
-public class CategAdapter extends RecyclerView.Adapter<CategAdapter.AllCategoryHelperClass> {
-
+public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.HelperClass> {
 
     ArrayList<CategoryHelperClass> arrayList;
 
-    public CategAdapter(ArrayList<CategoryHelperClass> arrayList){
+    public CategoryAdapter(ArrayList<CategoryHelperClass> arrayList){
         this.arrayList = arrayList;
     }
 
     @NonNull
     @Override
-    public CategAdapter.AllCategoryHelperClass onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.categoried_card_design, parent, false);
-        AllCategoryHelperClass hlp = new AllCategoryHelperClass(view);
-        return hlp;
+    public HelperClass onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.categoried_card_design,parent,false);
+        HelperClass h = new HelperClass(view);
+        return h;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CategAdapter.AllCategoryHelperClass holder, int position) {
-
+    public void onBindViewHolder(@NonNull HelperClass holder, int position) {
         CategoryHelperClass helperClass = arrayList.get(position);
 
         holder.imageView.setImageResource(helperClass.getImage());
         holder.textView.setText(helperClass.getText());
         holder.relativeLayout.setBackground(helperClass.gradient);
-
     }
 
     @Override
@@ -47,22 +45,18 @@ public class CategAdapter extends RecyclerView.Adapter<CategAdapter.AllCategoryH
         return arrayList.size();
     }
 
-    public class AllCategoryHelperClass extends RecyclerView.ViewHolder{
-
+    public class HelperClass extends RecyclerView.ViewHolder{
 
         RelativeLayout relativeLayout;
         ImageView imageView;
         TextView textView;
 
-        public AllCategoryHelperClass(@NonNull View itemView) {
+        public HelperClass(@NonNull View itemView) {
             super(itemView);
-
 
             relativeLayout = itemView.findViewById(R.id.relative_layout1);
             imageView = itemView.findViewById(R.id.image_card_view);
             textView = itemView.findViewById(R.id.text_card_view);
         }
-
-
     }
 }

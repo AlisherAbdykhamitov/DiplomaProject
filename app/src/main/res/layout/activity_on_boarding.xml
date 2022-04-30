@@ -45,8 +45,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
+            android:onClick="startApp"
             android:text="@string/lets_get_started"
-            android:visibility="invisible"/>
+            android:visibility="invisible" />
 
         <LinearLayout
             android:id="@+id/dots"

@@ -50,12 +50,16 @@ public class OnBoarding extends AppCompatActivity {
         viewPager.addOnPageChangeListener(changeListener);
     }
 
-
-
     public void skip(View view){
         startActivity(new Intent(this, UserDashboard.class));
         finish();
     }
+
+    public void startApp(View view){
+        startActivity(new Intent(this, UserDashboard.class));
+        finish();
+    }
+
 
     public void next(View view){
         viewPager.setCurrentItem(curruntPosition + 1);
@@ -100,7 +104,7 @@ public class OnBoarding extends AppCompatActivity {
             else {
                 animation = AnimationUtils.loadAnimation(OnBoarding.this, R.anim.bottom_animation);
                 btn.setAnimation(animation);
-                btn.setVisibility(View.INVISIBLE);
+                btn.setVisibility(View.VISIBLE);
             }
         }
 

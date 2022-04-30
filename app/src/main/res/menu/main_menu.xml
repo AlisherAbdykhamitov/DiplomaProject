@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:title="@string/home"
+            android:icon="@drawable/search_icon"/>
+        <item
+            android:id="@+id/nav_search"
+            android:title="@string/search"
+            android:icon="@drawable/search_icon"/>
+
+        <item
+            android:id="@+id/nav_categ"
+            android:title="@string/categroy"
+            android:icon="@drawable/search_icon"/>
+
+        <item
+            android:id="@+id/nav_place"
+            android:title="@string/mesto"
+            android:icon="@drawable/search_icon"/>
+
+    </group>
+
+    <item android:title="Profile">
+        <menu>
+
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_login"
+                    android:title="@string/login"
+                    android:icon="@drawable/search_icon"/>
+                <item
+                    android:id="@+id/nav_profile"
+                    android:title="@string/profile"
+                    android:icon="@drawable/search_icon"/>
+
+                <item
+                    android:id="@+id/nav_logout"
+                    android:title="@string/logout"
+                    android:icon="@drawable/search_icon"/>
+
+            </group>
+
+        </menu>
+
+    </item>
+
+    <item android:title="Categories">
+        <menu>
+            <item android:title="Profile">
+                <menu>
+
+                    <group android:checkableBehavior="single">
+                        <item
+                            android:id="@+id/nav_firstCategory"
+                            android:title="1"
+                            android:icon="@drawable/search_icon"/>
+                        <item
+                            android:id="@+id/nav_secondCategory"
+                            android:title="2"
+                            android:icon="@drawable/search_icon"/>
+
+                        <item
+                            android:id="@+id/nav_thirdCategory"
+                            android:title="3"
+                            android:icon="@drawable/search_icon"/>
+
+                    </group>
+
+                </menu>
+
+            </item>
+        </menu>
+    </item>
+
+</menu>

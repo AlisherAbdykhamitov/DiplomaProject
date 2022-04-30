@@ -29,14 +29,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_view_card,parent, false);
         RecyclerViewHolder recyclerViewHolder = new RecyclerViewHolder(view);
 
-        return null;
+        return recyclerViewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
 
         RecyclerClass recyclerClass = recyclerClasses.get(position);
-
         holder.image.setImageResource(recyclerClass.getImage());
         holder.title.setText(recyclerClass.getTitle());
         holder.description.setText(recyclerClass.getDescription());

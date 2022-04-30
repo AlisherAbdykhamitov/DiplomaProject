@@ -16,4 +16,5 @@
     <color name ="banner2_background">#EFE7A1</color>
     <color name = "help_background">#4C6563</color>
     <color name = "text_desc">#A1AEAD</color>
+    <color name = "lightWhite">#EBF1F0</color>
 </resources>

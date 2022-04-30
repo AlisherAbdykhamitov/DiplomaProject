@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.diplomaproject.Common.OnBoarding;
+import com.example.diplomaproject.User.UserDashboard;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
     //Animations
     Animation sideAnimation, bottomAnimation;
 
-    SharedPreferences sharedPreferences;
+    SharedPreferences onBoardingScreen;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,30 +46,28 @@ public class MainActivity extends AppCompatActivity {
         backgroundImage.setAnimation(sideAnimation);
         textBackgroundImage.setAnimation(bottomAnimation);
 
-        new Handler().postDelayed(new Runnable() {
+        new Handler().postDelayed(new Runnable()  {
             @Override
             public void run() {
-                sharedPreferences = getSharedPreferences("onBoardingScreen", MODE_PRIVATE);
-                boolean isFirstTime = sharedPreferences.getBoolean("firstTime", true);
+                onBoardingScreen = getSharedPreferences("onBoardingScreen", MODE_PRIVATE);
+                boolean isFirstTime = onBoardingScreen.getBoolean("firstTime", true);
 
                 if(isFirstTime){
 
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    SharedPreferences.Editor editor = onBoardingScreen.edit();
                     editor.putBoolean("firstTime", false);
                     editor.commit();
 
-                    Intent intent = new Intent(MainActivity.this, OnBoarding.class);
-                    startActivity(intent);
+                    Intent intent1 = new Intent(getApplicationContext(), UserDashboard.class);
+                    startActivity(intent1);
                     finish();
                 }
-                else{
-                    Intent intent = new Intent(MainActivity.this, OnBoarding.class);
+               else{
+                    Intent intent = new Intent(getApplicationContext(), OnBoarding.class);
                     startActivity(intent);
                     finish();
                 }
             }
         },SPLASH_TIMER);
-
-
     }
 }

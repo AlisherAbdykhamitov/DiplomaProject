@@ -25,4 +25,13 @@
     <string name = "search_text">View</string>
     <string name = "text_menu_1">Help for people in one click</string>
     <string name = "text_menu_1_desc">We will help everyone in need in one click, at the moment you want</string>
+
+
+    <string name = "home">HOME</string>
+    <string name = "search">SEARCH</string>
+    <string name = "categroy">ALL CATEGORIES</string>
+    <string name = "mesto">PLACE</string>
+    <string name = "login">Log in</string>
+    <string name = "profile">Profile</string>
+    <string name = "logout">Log out</string>
 </resources>
