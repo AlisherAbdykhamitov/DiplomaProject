@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#F1E257</color>
+    <color name="colorPrimary">#BAB8E1</color>
     <color name="colorPrimaryDark">#51d8c7</color>
     <color name="colorAccent">#FFFFFF</color>
     <color name="colorBackground">#413e4f</color>
@@ -17,4 +17,6 @@
     <color name = "help_background">#4C6563</color>
     <color name = "text_desc">#A1AEAD</color>
     <color name = "lightWhite">#EBF1F0</color>
+    <color name = "goodColor">#CBB6F1</color>
+
 </resources>

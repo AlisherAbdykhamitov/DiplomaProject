@@ -1,13 +1,19 @@
 package com.example.diplomaproject.User;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.example.diplomaproject.Adapter.CategoryAdapter;
 import com.example.diplomaproject.Adapter.CategoryHelperClass;
@@ -18,12 +24,16 @@ import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 
-public class UserDashboard extends AppCompatActivity {
+public class UserDashboard extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener{
 
+
+    static final float VALUE_END = 0.7f;
     //Var
     RecyclerView recyclerView, categoryView;
     RecyclerView.Adapter adapter;
     private GradientDrawable gradient1, gradient2, gradient3, gradient4;
+    ImageView menuIcon;
+    LinearLayout linearLayout;
 
     //DrawMenu
     DrawerLayout drawerLayout;
@@ -38,10 +48,16 @@ public class UserDashboard extends AppCompatActivity {
         //Hooks
        recyclerView = findViewById(R.id.recycler_view_first);
        categoryView = findViewById(R.id.cat_recycler_view);
+       menuIcon = findViewById(R.id.menu_icon);
+       linearLayout = findViewById(R.id.content_view_layout);
 
        //Menu Hooks
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
+
+
+
+        navigationDrawer();
 
        //Functions
         recyclerView();
@@ -49,6 +65,70 @@ public class UserDashboard extends AppCompatActivity {
 
     }
 
+
+    //Nav Drway Func
+    private void navigationDrawer() {
+
+        navigationView.bringToFront();
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.nav_home);
+        menuIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(drawerLayout.isDrawerVisible(GravityCompat.START)) {
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                }
+                else drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
+        animNavigation();
+    }
+
+    private void animNavigation() {
+        drawerLayout.setScrimColor(getResources().getColor(R.color.goodColor));
+        drawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
+            @Override
+            public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
+                final float diffScaledOffset = slideOffset * (1-VALUE_END);
+                final float offsetScale = 1 - diffScaledOffset;
+                linearLayout.setScaleX(offsetScale);
+                linearLayout.setScaleY(offsetScale);
+
+                final float xOffset = drawerView.getWidth() * slideOffset;
+                final float xOffsetDiff = linearLayout.getWidth() * diffScaledOffset / 2;
+                final float xTranslation = xOffset - xOffsetDiff;
+                linearLayout.setTranslationX(xTranslation);
+
+
+            }
+
+            @Override
+            public void onDrawerOpened(@NonNull View drawerView) {
+
+            }
+
+            @Override
+            public void onDrawerClosed(@NonNull View drawerView) {
+
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(drawerLayout.isDrawerVisible(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }else {
+            super.onBackPressed();
+        }
+    }
+
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) { return true; }
 
     private void recyclerView(){
 
@@ -66,6 +146,7 @@ public class UserDashboard extends AppCompatActivity {
 
 
     }
+
     private void categoriesRecycler() {
         //All Gradients
         gradient2 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xffd4cbe5, 0xffd4cbe5});
@@ -88,4 +169,7 @@ public class UserDashboard extends AppCompatActivity {
         categoryView.setAdapter(adapter);
 
     }
-    }
+
+
+
+}

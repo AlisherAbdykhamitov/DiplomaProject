@@ -13,11 +13,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@color/lightWhite"
+        android:theme="@style/navigationTheme"
+        android:background="#F6F6A7"
         app:headerLayout="@layout/menu_head"
         app:menu="@menu/main_menu"/>
 
     <LinearLayout
+        android:id="@+id/content_view_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -29,10 +31,11 @@
         android:padding="20dp">
 
         <ImageView
+            android:id="@+id/menu_icon"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/menu_icon"
-            android:layout_centerVertical="true"/>
+            android:layout_centerVertical="true"
+            android:src="@drawable/menu_icon_first" />
 
         <ImageView
             android:layout_width="40dp"

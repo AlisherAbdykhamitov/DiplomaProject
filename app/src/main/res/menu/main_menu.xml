@@ -5,21 +5,21 @@
         <item
             android:id="@+id/nav_home"
             android:title="@string/home"
-            android:icon="@drawable/search_icon"/>
+            android:icon="@drawable/menu_home_icon"/>
         <item
             android:id="@+id/nav_search"
             android:title="@string/search"
-            android:icon="@drawable/search_icon"/>
+            android:icon="@drawable/menu_search_icon"/>
 
         <item
             android:id="@+id/nav_categ"
             android:title="@string/categroy"
-            android:icon="@drawable/search_icon"/>
+            android:icon="@drawable/menu_category_icon"/>
 
         <item
             android:id="@+id/nav_place"
             android:title="@string/mesto"
-            android:icon="@drawable/search_icon"/>
+            android:icon="@drawable/menu_place_icon"/>
 
     </group>
 
@@ -30,16 +30,16 @@
                 <item
                     android:id="@+id/nav_login"
                     android:title="@string/login"
-                    android:icon="@drawable/search_icon"/>
+                    android:icon="@drawable/menu_login_icon"/>
                 <item
                     android:id="@+id/nav_profile"
                     android:title="@string/profile"
-                    android:icon="@drawable/search_icon"/>
+                    android:icon="@drawable/menu_profile_icon"/>
 
                 <item
                     android:id="@+id/nav_logout"
                     android:title="@string/logout"
-                    android:icon="@drawable/search_icon"/>
+                    android:icon="@drawable/menu_logout_icon"/>
 
             </group>
 
