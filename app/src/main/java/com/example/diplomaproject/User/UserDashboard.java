@@ -87,7 +87,7 @@ public class UserDashboard extends AppCompatActivity implements  NavigationView.
     }
 
     private void animNavigation() {
-        drawerLayout.setScrimColor(getResources().getColor(R.color.goodColor));
+       // drawerLayout.setScrimColor(getResources().getColor(R.color.goodColor));
         drawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
             public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
@@ -130,7 +130,18 @@ public class UserDashboard extends AppCompatActivity implements  NavigationView.
         }
     }
 
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) { return true; }
+    public boolean onNavigationItemSelected(@NonNull MenuItem item){
+
+        switch (item.getItemId()){
+
+            case R.id.nav_profile:
+                Intent intent = new Intent(getApplicationContext(), StartUpScreen.class);
+                startActivity(intent);
+                break;
+        }
+
+        return true;
+    }
 
     private void recyclerView(){
 

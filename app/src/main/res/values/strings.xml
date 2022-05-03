@@ -23,14 +23,16 @@
 
 
     <string name="home">HOME</string>
-    <string name="search">SEARCH</string>
-    <string name="categroy">ALL CATEGORIES</string>
-    <string name="mesto">PLACE</string>
-    <string name="login">Log in</string>
-    <string name="profile">Profile</string>
+    <string name="saved">LIKED</string>
+    <string name="categroy">CATEGORIES</string>
+    <string name="profile">PROFILE</string>
     <string name="logout">Log out</string>
 
 
+
+
+    <string name = "enter_username">Enter Username</string>
+    <string name = "password">Enter Password</string>
 
 
 </resources>
