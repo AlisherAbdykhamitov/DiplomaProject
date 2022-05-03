@@ -41,6 +41,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_alignParentRight="true"
+            android:onClick="callSignupScreen"
             android:layout_centerVertical="true"
             android:background="#D2EFF1E6"
             android:padding="5dp"
@@ -117,7 +118,8 @@
                         android:layout_height="60dp"
                         android:background="@drawable/cat_1"
                         android:elevation="4dp"
-                        android:layout_margin="10dp">
+                        android:layout_margin="10dp"
+                        >
 
                         <ImageView
                             android:layout_width="50dp"

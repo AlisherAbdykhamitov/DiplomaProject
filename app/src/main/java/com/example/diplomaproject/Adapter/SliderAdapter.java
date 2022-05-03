@@ -33,12 +33,12 @@ public class SliderAdapter extends PagerAdapter {
             R.string.third_slide_title,
             R.string.fourth_slide_title
     };
-    int descriptions[] = {
+    /*int descriptions[] = {
             R.string.first_slide_desc,
             R.string.second_slide_desc,
             R.string.third_slide_desc,
             R.string.fourth_slide_desc
-    };
+    };*/
 
     @Override
     public int getCount() {
@@ -61,12 +61,12 @@ public class SliderAdapter extends PagerAdapter {
         //Hooks
         ImageView imageView = view.findViewById(R.id.slider_image);
         TextView heading = view.findViewById(R.id.slider_head);
-        TextView description = view.findViewById(R.id.slider_desc);
+        //TextView description = view.findViewById(R.id.slider_desc);
 
 
         imageView.setImageResource(images[position]);
         heading.setText(headings[position]);
-        description.setText(descriptions[position]);
+        //description.setText(descriptions[position]);
 
         container.addView(view);
 
