@@ -54,8 +54,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:paddingBottom="20dp"
-            android:orientation="horizontal"/>
+            android:orientation="horizontal"
+            android:paddingBottom="20dp" />
 
         <Button
             android:layout_width="131dp"

@@ -7,6 +7,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -19,6 +20,7 @@ import com.example.diplomaproject.Adapter.CategoryAdapter;
 import com.example.diplomaproject.Adapter.CategoryHelperClass;
 import com.example.diplomaproject.Adapter.RecyclerAdapter;
 import com.example.diplomaproject.Adapter.RecyclerClass;
+import com.example.diplomaproject.LoginSignup.StartUpScreen;
 import com.example.diplomaproject.R;
 import com.google.android.material.navigation.NavigationView;
 
@@ -168,6 +170,10 @@ public class UserDashboard extends AppCompatActivity implements  NavigationView.
         categoryView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         categoryView.setAdapter(adapter);
 
+    }
+
+    public void callSignupScreen(View view){
+        startActivity(new Intent(getApplicationContext(), StartUpScreen.class));
     }
 
 

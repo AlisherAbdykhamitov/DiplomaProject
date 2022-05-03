@@ -3,17 +3,13 @@
     <string name="text_accounts">All Accounts</string>
 
     <!--Title need-->
-    <string name="first_slide_title">1</string>
-    <string name="second_slide_title">2</string>
-    <string name="third_slide_title">3</string>
+    <string name="first_slide_title">Give something to help a people</string>
+    <string name="second_slide_title">You Can Make Someone Happy</string>
+    <string name="third_slide_title">With this app, you can make a world better</string>
     <string name="fourth_slide_title">4</string>
 
     <!--Description of Titles-->
 
-    <string name="first_slide_desc">First</string>
-    <string name="second_slide_desc">Second</string>
-    <string name="third_slide_desc">Third</string>
-    <string name="fourth_slide_desc">Fourth</string>
 
     <!--Buttons -->
     <string name="skip_button">Skip</string>
@@ -21,17 +17,20 @@
     <string name="lets_get_started">Lets Get Started</string>
 
 
+    <string name="search_text">View</string>
+    <string name="text_menu_1">Help for people in one click</string>
+    <string name="text_menu_1_desc">We will help everyone in need in one click, at the moment you want</string>
 
-    <string name = "search_text">View</string>
-    <string name = "text_menu_1">Help for people in one click</string>
-    <string name = "text_menu_1_desc">We will help everyone in need in one click, at the moment you want</string>
+
+    <string name="home">HOME</string>
+    <string name="search">SEARCH</string>
+    <string name="categroy">ALL CATEGORIES</string>
+    <string name="mesto">PLACE</string>
+    <string name="login">Log in</string>
+    <string name="profile">Profile</string>
+    <string name="logout">Log out</string>
 
 
-    <string name = "home">HOME</string>
-    <string name = "search">SEARCH</string>
-    <string name = "categroy">ALL CATEGORIES</string>
-    <string name = "mesto">PLACE</string>
-    <string name = "login">Log in</string>
-    <string name = "profile">Profile</string>
-    <string name = "logout">Log out</string>
+
+
 </resources>
