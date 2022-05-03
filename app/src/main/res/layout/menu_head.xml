@@ -19,11 +19,11 @@
         android:id="@+id/name_app"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="App Name we need"
-        android:textSize="25sp"
-        android:textColor="@color/textBlack"
+        android:layout_above="@+id/text_menu"
         android:fontFamily="@font/advent_pro_semibold"
-        android:layout_above="@+id/text_menu" />
+        android:text="Donation"
+        android:textColor="@color/textBlack"
+        android:textSize="25sp" />
     
     <ImageView
         android:layout_width="50dp"

@@ -19,4 +19,7 @@
     <color name = "lightWhite">#EBF1F0</color>
     <color name = "goodColor">#CBB6F1</color>
 
+    <color name = "loginBackground">#859110</color>
+    <color name = "white">#FFFFFF</color>
+
 </resources>
