@@ -10,6 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".CategoryDonations"
+            android:exported="false" />
+        <activity
+            android:name=".LoginSignup.VerifyScreen"
+            android:exported="false" />
+        <activity
+            android:name=".LoginSignup.SignUpThird"
+            android:exported="false" />
+        <activity
+            android:name=".LoginSignup.SignUpSecond"
+            android:exported="false" />
+        <activity
+            android:name=".LoginSignup.SignUpFirst"
+            android:exported="false" />
+        <activity
             android:name=".LoginSignup.Login"
             android:exported="false" />
         <activity

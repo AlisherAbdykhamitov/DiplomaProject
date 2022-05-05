@@ -29,10 +29,8 @@
     <string name="logout">Log out</string>
 
 
-
-
-    <string name = "enter_username">Enter Username</string>
-    <string name = "password">Enter Password</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="password">Enter Password</string>
 
 
 </resources>

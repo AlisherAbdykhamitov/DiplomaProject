@@ -19,7 +19,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:onClick="backMenu"
             android:src="@drawable/login_back" />
 
         <TextView
@@ -30,7 +29,7 @@
             android:text="Login"
             android:textAllCaps="true"
             android:textColor="@color/textBlack"
-            android:textSize="35dp" />
+            android:textSize="40dp" />
 
         <LinearLayout
             android:layout_width="match_parent"

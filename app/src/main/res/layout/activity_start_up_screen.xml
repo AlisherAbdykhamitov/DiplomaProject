@@ -46,19 +46,25 @@
             android:layout_marginTop="40dp">
 
             <Button
+                android:id="@+id/login_btn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Login"
+                android:layout_marginRight="10dp"
                 android:layout_weight="@integer/material_motion_duration_long_1"
-                android:layout_marginRight="10dp"/>
+                android:text="Login"
+                android:onClick="callLoginScreen"
+                android:transitionName="transition_login"/>
 
 
             <Button
+                android:id="@+id/signup_btn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Sign up"
                 android:layout_weight="@integer/material_motion_duration_long_1"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="10dp"
+                android:onClick="signupStart"
+                android:transitionName="transition_signup"/>
 
 
         </LinearLayout>
