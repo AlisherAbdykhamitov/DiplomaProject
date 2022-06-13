@@ -20,7 +20,4 @@
             android:title="@string/profile"
             android:icon="@drawable/menu_profile_icon"/>
     </group>
-
-
-
 </menu>

@@ -53,6 +53,17 @@
             android:fontFamily="@font/advent_pro_semibold"
             android:layout_gravity="center"
             android:textAlignment="center"/>
+        <TextView
+            android:id="@+id/otp_description_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:includeFontPadding="false"
+            android:text="Enter one time password sent on"
+            android:textAlignment="center"
+            android:textColor="@color/textBlack"
+            android:textSize="16sp" />
 
         <com.chaos.view.PinView
             android:id="@+id/verify_code"
@@ -60,7 +71,6 @@
             android:layout_height="wrap_content"
             app:itemCount="6"
             app:itemWidth="50dp"
-
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
             android:inputType="number"
@@ -70,6 +80,7 @@
             app:hideLineWhenFilled="true"/>
         
         <Button
+            android:id="@+id/verify_code_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/loginBackground"

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -26,6 +27,7 @@ public class SignUpFirst extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_sign_up);
 
         //for anim
@@ -49,7 +51,18 @@ public class SignUpFirst extends AppCompatActivity {
 //            return;
 //        }
 
+
+        String _fullName = fullName.getEditText().getText().toString().trim();
+        String _email = email.getEditText().getText().toString().trim();
+        String _username = username.getEditText().getText().toString().trim();
+        String _password = password.getEditText().getText().toString().trim();
+
         Intent intent = new Intent(getApplicationContext(), SignUpSecond.class);
+
+        intent.putExtra("fullName", _fullName);
+        intent.putExtra("email", _email);
+        intent.putExtra("username", _username);
+        intent.putExtra("password", _password);
 
         Pair[] pairs = new Pair[4];
 
@@ -67,11 +80,11 @@ public class SignUpFirst extends AppCompatActivity {
         }
 
     }
-//
-//    public void loginFromSignUp(View view){
-//        startActivity(new Intent(getApplicationContext(),Login.class));
-//        finish();
-//    }
+
+    public void loginFromSignUp(View view){
+        startActivity(new Intent(getApplicationContext(),Login.class));
+        finish();
+    }
 
 //    private boolean valFullName(){
 //        String val = fullName.getEditText().getText().toString().trim();
@@ -108,7 +121,7 @@ public class SignUpFirst extends AppCompatActivity {
 //            return true;
 //        }
 //    }
-//
+
 //    private boolean valEmail(){
 //        String val = email.getEditText().getText().toString().trim();
 //        String chekEmail = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";

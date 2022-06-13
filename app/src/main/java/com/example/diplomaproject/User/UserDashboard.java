@@ -84,43 +84,43 @@ public class UserDashboard extends AppCompatActivity implements  NavigationView.
                 else drawerLayout.openDrawer(GravityCompat.START);
             }
         });
-        animNavigation();
+       // animNavigation();
     }
 
-    private void animNavigation() {
-       // drawerLayout.setScrimColor(getResources().getColor(R.color.goodColor));
-        drawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
-            @Override
-            public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
-                final float diffScaledOffset = slideOffset * (1-VALUE_END);
-                final float offsetScale = 1 - diffScaledOffset;
-                linearLayout.setScaleX(offsetScale);
-                linearLayout.setScaleY(offsetScale);
-
-                final float xOffset = drawerView.getWidth() * slideOffset;
-                final float xOffsetDiff = linearLayout.getWidth() * diffScaledOffset / 2;
-                final float xTranslation = xOffset - xOffsetDiff;
-                linearLayout.setTranslationX(xTranslation);
-
-
-            }
-
-            @Override
-            public void onDrawerOpened(@NonNull View drawerView) {
-
-            }
-
-            @Override
-            public void onDrawerClosed(@NonNull View drawerView) {
-
-            }
-
-            @Override
-            public void onDrawerStateChanged(int newState) {
-
-            }
-        });
-    }
+//    private void animNavigation() {
+//       // drawerLayout.setScrimColor(getResources().getColor(R.color.goodColor));
+//        drawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
+//            @Override
+//            public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
+//                final float diffScaledOffset = slideOffset * (1-VALUE_END);
+//                final float offsetScale = 1 - diffScaledOffset;
+//                linearLayout.setScaleX(offsetScale);
+//                linearLayout.setScaleY(offsetScale);
+//
+//                final float xOffset = drawerView.getWidth() * slideOffset;
+//                final float xOffsetDiff = linearLayout.getWidth() * diffScaledOffset / 2;
+//                final float xTranslation = xOffset - xOffsetDiff;
+//                linearLayout.setTranslationX(xTranslation);
+//
+//
+//            }
+//
+//            @Override
+//            public void onDrawerOpened(@NonNull View drawerView) {
+//
+//            }
+//
+//            @Override
+//            public void onDrawerClosed(@NonNull View drawerView) {
+//
+//            }
+//
+//            @Override
+//            public void onDrawerStateChanged(int newState) {
+//
+//            }
+//        });
+//    }
 
     @Override
     public void onBackPressed() {

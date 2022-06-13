@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginSignup.SignUpSecond"
-    android:background="@color/loginBackground"
+    android:background="#C5E6E2"
     android:padding="30dp">
 
     <LinearLayout
@@ -98,7 +98,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/sign_next_btn"
+            android:id="@+id/sign_next_btn_second"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Next"

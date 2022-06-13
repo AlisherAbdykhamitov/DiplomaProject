@@ -12,11 +12,13 @@ import android.widget.ScrollView;
 
 import com.example.diplomaproject.R;
 import com.google.android.material.textfield.TextInputLayout;
+import com.hbb20.CountryCodePicker;
 
 public class SignUpThird extends AppCompatActivity {
 
     ScrollView scrollView;
     TextInputLayout phoneNumber;
+
 
 
     @Override
@@ -30,24 +32,39 @@ public class SignUpThird extends AppCompatActivity {
     }
 
     public void callVerifyScreen(View view){
+
+//        //Check Internet Connection
+//        CheckInternet checkInternet = new CheckInternet();
+//        if (!checkInternet.isConnected(this)) {
+//            showCustomDialog();
+//            return;
+//        }
+
         //if(!validatePhoneNumber()){
           //  return;
         //}
 
         //get all data from registration
+        final String _fullName = getIntent().getStringExtra("fullName");
+        final String _email = getIntent().getStringExtra("email");
+        final String _username = getIntent().getStringExtra("username");
+        final String _password = getIntent().getStringExtra("password");
+        final String _date = getIntent().getStringExtra("date");
+        final String _gender = getIntent().getStringExtra("gender");
 
-        String _fullName = getIntent().getStringExtra("fullName");
-        String _email = getIntent().getStringExtra("email");
-        String _username = getIntent().getStringExtra("username");
-        String _password = getIntent().getStringExtra("password");
-        String _date = getIntent().getStringExtra("date");
-        String _gender = getIntent().getStringExtra("gender");
 
-        String _getUserPhoneNumber = phoneNumber.getEditText().getText().toString().trim();//get number
-        String _phoneN = "+"+"+7"+_getUserPhoneNumber;
+
+        String _getUserEnteredPhoneNumber = phoneNumber.getEditText().getText().toString().trim(); //Get Phone Number
+        if (_getUserEnteredPhoneNumber.charAt(0) == '0') {
+            _getUserEnteredPhoneNumber = _getUserEnteredPhoneNumber.substring(1);
+        }
+
+        String _phoneN = "+" + "7" + _getUserEnteredPhoneNumber;
+
+
+
 
         Intent intent = new Intent(getApplicationContext(),VerifyScreen.class);
-
 
         intent.putExtra("fullName", _fullName);
         intent.putExtra("email", _email);
@@ -58,16 +75,14 @@ public class SignUpThird extends AppCompatActivity {
         intent.putExtra("phoneN", _phoneN);
 
 
+
         Pair[] pairs = new Pair[1];
-        pairs[0] = new Pair<View,String>(scrollView, "transition_VERIFY_screen");
+        pairs[0] = new Pair<View,String>(scrollView, "transition_OTP_screen");
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignUpThird.this, pairs);
             startActivity(intent, options.toBundle());
         } else {
             startActivity(intent);
         }
-
-
-
     }
 }
