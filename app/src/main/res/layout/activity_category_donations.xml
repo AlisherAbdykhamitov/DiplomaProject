@@ -106,6 +106,7 @@
                     android:text="Donate"
                     android:textColor="@color/lightWhite"
                     android:textSize="14dp"></Button>
+
                 <ImageButton
                     android:id="@+id/save1"
                     android:layout_width="26dp"
@@ -114,7 +115,7 @@
                     android:adjustViewBounds="true"
                     android:background="@android:color/transparent"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/like"
+                    android:src="@drawable/heart"
                     app:layout_constraintEnd_toEndOf="parent"></ImageButton>
             </RelativeLayout>
 
@@ -193,7 +194,7 @@
                 android:adjustViewBounds="true"
                 android:background="@android:color/transparent"
                 android:scaleType="fitCenter"
-                android:src="@drawable/like"
+                android:src="@drawable/heart"
                 app:layout_constraintEnd_toEndOf="parent"></ImageButton>
         </RelativeLayout>
 
@@ -259,6 +260,7 @@
                         android:layout_marginLeft="56dp"
                         android:background="#03A9F4">
                     </Button>
+
                     <ImageButton
                         android:id="@+id/save3"
                         android:layout_width="26dp"
@@ -267,7 +269,7 @@
                         android:adjustViewBounds="true"
                         android:background="@android:color/transparent"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/like"
+                        android:src="@drawable/heart"
                         app:layout_constraintEnd_toEndOf="parent"></ImageButton>
                 </RelativeLayout>
 
@@ -337,6 +339,7 @@
                         android:layout_marginLeft="56dp"
                         android:background="#03A9F4">
                     </Button>
+
                     <ImageButton
                         android:id="@+id/save4"
                         android:layout_width="26dp"
@@ -345,7 +348,7 @@
                         android:adjustViewBounds="true"
                         android:background="@android:color/transparent"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/like"
+                        android:src="@drawable/heart"
                         app:layout_constraintEnd_toEndOf="parent"></ImageButton>
                 </RelativeLayout>
 

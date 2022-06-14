@@ -16,7 +16,7 @@ import com.example.diplomaproject.User.UserDashboard;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static int SPLASH_TIMER = 5000;
+    private static int SPLASH_TIMER = 3000;
 
     //Variables
     ImageView backgroundImage;
@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         //Hooks
         backgroundImage = findViewById(R.id.background_image);
@@ -69,5 +68,11 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         },SPLASH_TIMER);
+
     }
+
+
+
+
+
 }

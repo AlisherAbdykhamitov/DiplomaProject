@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.graphics.drawable.GradientDrawable;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,37 +16,45 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.example.diplomaproject.Adapter.CategoryAdapter;
-import com.example.diplomaproject.Adapter.CategoryHelperClass;
 import com.example.diplomaproject.Adapter.RecyclerAdapter;
 import com.example.diplomaproject.Adapter.RecyclerClass;
 import com.example.diplomaproject.CategoryDonations;
+import com.example.diplomaproject.Database.SessionClassManager;
 import com.example.diplomaproject.LoginSignup.StartUpScreen;
 import com.example.diplomaproject.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class UserDashboard extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener{
-
 
     static final float VALUE_END = 0.7f;
     //Var
     RecyclerView recyclerView, categoryView;
     RecyclerView.Adapter adapter;
+
    // private GradientDrawable gradient1, gradient2, gradient3, gradient4;
     ImageView menuIcon;
     LinearLayout linearLayout;
 
+
     //DrawMenu
     DrawerLayout drawerLayout;
     NavigationView navigationView;
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_user_dashboard);
+
+
+        //bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+
 
         //Hooks
        recyclerView = findViewById(R.id.recycler_view_first);
@@ -58,16 +66,31 @@ public class UserDashboard extends AppCompatActivity implements  NavigationView.
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
 
-
-
         navigationDrawer();
-
-       //Functions
         recyclerView();
-        //categoriesRecycler();
+
+
+//        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                Fragment fragment = null;
+//                switch (item.getItemId()){
+//                    case R.id.home_nav:
+//                        fragment = new MainFragment();
+//                        break;
+//                    case R.id.liked_nav:
+//                        fragment = new LikeFragment();
+//                        break;
+//                    case R.id.profile_nav:
+//                        fragment = new ProfileFragment();
+//                        break;
+//                }
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+//                return true;
+//            }
+//        });
 
     }
-
 
     //Nav Drway Func
     private void navigationDrawer() {
@@ -84,43 +107,43 @@ public class UserDashboard extends AppCompatActivity implements  NavigationView.
                 else drawerLayout.openDrawer(GravityCompat.START);
             }
         });
-       // animNavigation();
+       animNavigation();
     }
 
-//    private void animNavigation() {
-//       // drawerLayout.setScrimColor(getResources().getColor(R.color.goodColor));
-//        drawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
-//            @Override
-//            public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
-//                final float diffScaledOffset = slideOffset * (1-VALUE_END);
-//                final float offsetScale = 1 - diffScaledOffset;
-//                linearLayout.setScaleX(offsetScale);
-//                linearLayout.setScaleY(offsetScale);
-//
-//                final float xOffset = drawerView.getWidth() * slideOffset;
-//                final float xOffsetDiff = linearLayout.getWidth() * diffScaledOffset / 2;
-//                final float xTranslation = xOffset - xOffsetDiff;
-//                linearLayout.setTranslationX(xTranslation);
-//
-//
-//            }
-//
-//            @Override
-//            public void onDrawerOpened(@NonNull View drawerView) {
-//
-//            }
-//
-//            @Override
-//            public void onDrawerClosed(@NonNull View drawerView) {
-//
-//            }
-//
-//            @Override
-//            public void onDrawerStateChanged(int newState) {
-//
-//            }
-//        });
-//    }
+    private void animNavigation() {
+       // drawerLayout.setScrimColor(getResources().getColor(R.color.goodColor));
+        drawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
+            @Override
+            public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
+                final float diffScaledOffset = slideOffset * (1-VALUE_END);
+                final float offsetScale = 1 - diffScaledOffset;
+                linearLayout.setScaleX(offsetScale);
+                linearLayout.setScaleY(offsetScale);
+
+                final float xOffset = drawerView.getWidth() * slideOffset;
+                final float xOffsetDiff = linearLayout.getWidth() * diffScaledOffset / 2;
+                final float xTranslation = xOffset - xOffsetDiff;
+                linearLayout.setTranslationX(xTranslation);
+
+
+            }
+
+            @Override
+            public void onDrawerOpened(@NonNull View drawerView) {
+
+            }
+
+            @Override
+            public void onDrawerClosed(@NonNull View drawerView) {
+
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+
+            }
+        });
+    }
 
     @Override
     public void onBackPressed() {
@@ -135,10 +158,29 @@ public class UserDashboard extends AppCompatActivity implements  NavigationView.
 
         switch (item.getItemId()){
 
+            case R.id.nav_login:
+                SessionClassManager sessionClassManager = new SessionClassManager(this);
+                if(sessionClassManager.checkLoginUser()){
+                    Intent intent = new Intent(getApplicationContext(), StartUpScreen.class);
+                    startActivity(intent);
+                    break;
+
+                }else{
+                    Intent intent = new Intent(getApplicationContext(),UserProfile.class);
+                    startActivity(intent);
+                    break;
+                }
             case R.id.nav_profile:
-                Intent intent = new Intent(getApplicationContext(), StartUpScreen.class);
-                startActivity(intent);
+                Intent intent1 = new Intent(getApplicationContext(), UserProfile.class);
+                startActivity(intent1);
                 break;
+            case R.id.nav_logout:
+                SessionClassManager sessionClassManager1 = new SessionClassManager(this);
+                sessionClassManager1.logoutUserFormSession();
+                Intent intent2 = new Intent(getApplicationContext(), UserProfile.class);
+                startActivity(intent2);
+                break;
+
         }
 
         return true;

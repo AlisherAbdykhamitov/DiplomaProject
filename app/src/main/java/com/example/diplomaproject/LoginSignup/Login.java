@@ -4,11 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
@@ -16,7 +13,10 @@ import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.diplomaproject.Database.SessionClassManager;
 import com.example.diplomaproject.R;
+import com.example.diplomaproject.User.UserDashboard;
+import com.example.diplomaproject.User.UserProfile;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -82,6 +82,20 @@ public class Login extends AppCompatActivity {
                         String _password = snapshot.child(_completePhoneNumber).child("password").getValue(String.class);
                         String _dateOfBirth = snapshot.child(_completePhoneNumber).child("date").getValue(String.class);
                         String _gender = snapshot.child(_completePhoneNumber).child("gender").getValue(String.class);
+
+                        //Create Session
+                        SessionClassManager sessionClassManager = new SessionClassManager(Login.this);
+                        sessionClassManager.createLoginSession(_fullname, _username, _email, _phoneN, _password, _dateOfBirth, _gender);
+                        startActivity(new Intent(getApplicationContext(), UserProfile.class));
+
+//                        Intent intent = new Intent(getApplicationContext(), UserProfile.class);
+//                        intent.putExtra("fullName", _fullname);
+//                        intent.putExtra("username", _username);
+//                        intent.putExtra("email", _email);
+//                        intent.putExtra("phoneN", _phoneN);
+//
+//                        startActivity(intent);
+
 
                         Toast.makeText(Login.this,
                                 _fullname+"\n"+

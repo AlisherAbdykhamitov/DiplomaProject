@@ -22,13 +22,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:menu="@menu/bottom_menu_nav"
-            android:background="@color/cat3"
-            android:layout_alignParentBottom="true"/>
+<!--        <FrameLayout-->
+<!--            android:id="@+id/fragment_container"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent" />-->
 
+<!--            <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--                android:id="@+id/bottom_navigation"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:menu="@menu/bottom_menu_nav"-->
+<!--                android:background="@color/cat3"-->
+<!--                android:layout_alignParentBottom="true"/>-->
 
     <LinearLayout
         android:id="@+id/content_view_layout"
@@ -79,31 +84,31 @@
                     android:textSize="30dp" />
 
                 <RelativeLayout
-                    android:layout_below="@id/app_name"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:background="@color/colorAccent"
+                    android:layout_below="@id/app_name"
                     android:layout_marginLeft="40dp"
-                    android:layout_marginRight="40dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="40dp"
                     android:layout_marginBottom="20dp"
+                    android:background="@color/colorAccent"
                     android:elevation="8dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/search_text"
-                        android:textColor="@color/colorBackground"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="15dp"/>
+                        android:layout_marginLeft="15dp"
+                        android:text="@string/search_text"
+                        android:textColor="@color/colorBackground" />
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:src="@drawable/search_icon"
-                        android:layout_marginRight="15dp"/>
+                        android:layout_marginRight="15dp"
+                        android:src="@drawable/search_icon" />
                 </RelativeLayout>
 
 

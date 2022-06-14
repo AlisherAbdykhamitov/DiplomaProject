@@ -22,4 +22,7 @@
     <color name = "loginBackground">#859110</color>
     <color name = "white">#FFFFFF</color>
 
+
+    <color name = "profile_background">#9DFA7C</color>
+
 </resources>
