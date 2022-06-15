@@ -24,8 +24,10 @@
         <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/font/abril_fatface.xml" value="0.284375" />
         <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/layout/activity_all_categories.xml" value="0.1875" />
         <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/layout/activity_category_donations.xml" value="0.22708333333333333" />
+        <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/layout/activity_donations_detail.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/layout/activity_main_category.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/layout/activity_on_boarding.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/layout/activity_second_sign_up.xml" value="0.25" />
         <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
@@ -37,14 +39,17 @@
         <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/layout/activity_user_profile.xml" value="0.2" />
         <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/layout/activity_verify_screen.xml" value="0.23052536231884058" />
         <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/layout/categoried_card_design.xml" value="0.136" />
+        <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/layout/donation_items.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/layout/fragment_like.xml" value="0.23052536231884058" />
         <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/layout/fragment_main.xml" value="0.23052536231884058" />
+        <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/layout/fragment_page.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/layout/fragment_profile.xml" value="0.23052536231884058" />
         <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/layout/menu_head.xml" value="0.24818840579710144" />
         <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/layout/recycler_view_card.xml" value="0.264" />
         <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/layout/slides_layout.xml" value="0.264" />
         <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/menu/bottom_menu_nav.xml" value="0.25" />
         <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/menu/main_menu.xml" value="0.25" />
+        <entry key="..\:/Users/Alisher/AndroidStudioProjects/DiplomaProject/app/src/main/res/menu/menu_bn.xml" value="0.25" />
       </map>
     </option>
   </component>

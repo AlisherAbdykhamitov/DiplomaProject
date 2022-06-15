@@ -20,6 +20,7 @@ import com.example.diplomaproject.Adapter.RecyclerAdapter;
 import com.example.diplomaproject.Adapter.RecyclerClass;
 import com.example.diplomaproject.CategoryDonations;
 import com.example.diplomaproject.Database.SessionClassManager;
+import com.example.diplomaproject.Donation.MainCategory;
 import com.example.diplomaproject.LoginSignup.StartUpScreen;
 import com.example.diplomaproject.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -170,6 +171,10 @@ public class UserDashboard extends AppCompatActivity implements  NavigationView.
                     startActivity(intent);
                     break;
                 }
+            case R.id.nav_home:
+                Intent intent4 = new Intent(getApplicationContext(), UserDashboard.class);
+                startActivity(intent4);
+                break;
             case R.id.nav_profile:
                 Intent intent1 = new Intent(getApplicationContext(), UserProfile.class);
                 startActivity(intent1);
@@ -179,6 +184,10 @@ public class UserDashboard extends AppCompatActivity implements  NavigationView.
                 sessionClassManager1.logoutUserFormSession();
                 Intent intent2 = new Intent(getApplicationContext(), UserProfile.class);
                 startActivity(intent2);
+                break;
+            case R.id.nav_categ:
+                Intent intent3 = new Intent(getApplicationContext(), MainCategory.class);
+                startActivity(intent3);
                 break;
 
         }
@@ -227,6 +236,11 @@ public class UserDashboard extends AppCompatActivity implements  NavigationView.
 //    }
     public void viewDonationCategory(View view){
         Intent intent =new Intent(getApplicationContext(), CategoryDonations.class);
+        startActivity(intent);
+    }
+
+    public void goToCategories(View view){
+        Intent intent = new Intent(getApplicationContext(), MainCategory.class);
         startActivity(intent);
     }
 }
