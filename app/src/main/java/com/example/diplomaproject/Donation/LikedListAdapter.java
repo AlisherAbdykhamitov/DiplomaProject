@@ -18,13 +18,12 @@ import com.example.diplomaproject.R;
 
 import java.util.List;
 
-public class LikedListAdapter extends RecyclerView.Adapter<LikedListAdapter.LikedNewsViewHolder> {
+public class LikedListAdapter extends RecyclerView.Adapter<LikedListAdapter.LikedDonationsViewHolder> {
     private final List<Donations> donationsList;
-
+    private boolean hearted = false;
     @Nullable
     private final LikedListAdapter.ItemClickListener listener;
     private @Nullable
-    final
     FragmentLikeListener fragmentLikeListener;
 
 
@@ -41,25 +40,27 @@ public class LikedListAdapter extends RecyclerView.Adapter<LikedListAdapter.Like
     @NonNull
     @Override
 
-    public LikedNewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        @SuppressLint("InflateParams") View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.donation_items, null, false);
+    public LikedDonationsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.donation_items, null, false);
         RecyclerView.LayoutParams params = new RecyclerView.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
         );
         view.setLayoutParams(params);
-        return new LikedNewsViewHolder(view);
+        return new LikedDonationsViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final LikedNewsViewHolder holder, @SuppressLint("RecyclerView") final int position) {
+    public void onBindViewHolder(@NonNull final LikedDonationsViewHolder holder, final int position) {
 
         final Donations donations = donationsList.get(getItemViewType(position));
-        holder.name.setText(donations.getName());
-        String s = "<b>"+ donations.getName()+ "</b>" + " "+ donations.getSite();
-        holder.site.setText(Html.fromHtml(s));
-        holder.likeBtn.setImageResource(R.drawable.hearted);
         Glide.with(holder.image.getContext()).load(donations.getImage()).into(holder.image);
+        holder.name.setText(donations.getName());
+//        String s = "<b>"+ donations.getName()+ "</b>" + " "+ donations.getSite();
+        holder.site.setText(donations.getSite());
+        holder.description.setText(donations.getDescription());
+        holder.likeBtn.setImageResource(R.drawable.hearted);
+
 
 
         holder.likeBtn.setOnClickListener(v -> {
@@ -79,19 +80,21 @@ public class LikedListAdapter extends RecyclerView.Adapter<LikedListAdapter.Like
         return donationsList.size();
     }
 
-    public static class LikedNewsViewHolder extends RecyclerView.ViewHolder {
-        TextView name;
+    public static class LikedDonationsViewHolder extends RecyclerView.ViewHolder {
         ImageView image;
+        TextView name;
         TextView site;
         ImageButton likeBtn;
+        TextView description;
 
-        public LikedNewsViewHolder(@NonNull View itemView) {
+        public LikedDonationsViewHolder(@NonNull View itemView) {
 
             super(itemView);
-            name = itemView.findViewById(R.id.name);
             image = itemView.findViewById(R.id.image);
+            name = itemView.findViewById(R.id.name);
             site = itemView.findViewById(R.id.site);
             likeBtn = itemView.findViewById(R.id.likeBtn);
+            description = itemView.findViewById(R.id.description);
         }
     }
 

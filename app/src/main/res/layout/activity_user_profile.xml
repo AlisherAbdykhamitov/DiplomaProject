@@ -43,10 +43,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/full_name"
-            android:includeFontPadding="false"
             android:layout_centerInParent="true"
+            android:includeFontPadding="false"
             android:text="Username"
             android:textSize="14dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/username_id_profile_main"
+            android:text="edit_profile"
+            android:padding="5dp"
+            android:fontFamily="@font/abril_fatface"/>
 
     </RelativeLayout>
 
@@ -129,14 +138,12 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-
-
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Logout"
             android:onClick="logOutFromUserSession"
-            android:fontFamily="@font/amaranth_bold"
+            android:fontFamily="@font/advent_pro_semibold"
             android:background="#B1E8F8"/>
 
 

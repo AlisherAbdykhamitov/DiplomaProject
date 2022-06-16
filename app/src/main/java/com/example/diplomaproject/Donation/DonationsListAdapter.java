@@ -20,7 +20,7 @@ import com.example.diplomaproject.R;
 
 import java.util.List;
 
-public class DonationsListAdapter extends RecyclerView.Adapter<DonationsListAdapter.NewsViewHolder> {
+public class DonationsListAdapter extends RecyclerView.Adapter<DonationsListAdapter.DonationsViewHolder> {
     List<Donations> donationsList;
     @Nullable
     private final ItemClickListener listener;
@@ -44,26 +44,27 @@ public class DonationsListAdapter extends RecyclerView.Adapter<DonationsListAdap
     @NonNull
     @Override
 
-    public NewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        @SuppressLint("InflateParams") View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.donation_items, null, false);
+    public DonationsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.donation_items, null, false);
         RecyclerView.LayoutParams params = new RecyclerView.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
         );
         view.setLayoutParams(params);
-        return new NewsViewHolder(view);
+        return new DonationsViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final NewsViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final DonationsViewHolder holder, final int position) {
 
 
         final Donations donations = donationsList.get(getItemViewType(position));
-        holder.name.setText(donations.getName());
-        String s = "<b>" + donations.getName() + "</b>" + " " + donations.getSite();
-        holder.site.setText(Html.fromHtml(s));
-
         Glide.with(holder.image.getContext()).load(donations.getImage()).into(holder.image);
+        holder.name.setText(donations.getName());
+//        String s = "<b>" + donations.getName() + "</b>" + " " + donations.getSite();
+        holder.site.setText(donations.getSite());
+        holder.description.setText(donations.getDescription());
+
 
 
         if (donations.getHeart()) holder.likeBtn.setImageResource(R.drawable.hearted);
@@ -81,7 +82,6 @@ public class DonationsListAdapter extends RecyclerView.Adapter<DonationsListAdap
                 } else {
                     holder.likeBtn.setImageResource(R.drawable.heart);
 
-                    assert fragmentLikeListener != null;
                     fragmentLikeListener.removeItemLike(donations);
                     donations.setheart(false);
                 }
@@ -103,19 +103,21 @@ public class DonationsListAdapter extends RecyclerView.Adapter<DonationsListAdap
         return Donations.donationsList.size();
     }
 
-    public static class NewsViewHolder extends RecyclerView.ViewHolder {
+    public static class DonationsViewHolder extends RecyclerView.ViewHolder {
 
-        TextView name;
         ImageView image;
+        TextView name;
         TextView site;
         ImageButton likeBtn;
+        TextView description;
 
-        public NewsViewHolder(@NonNull View itemView) {
+        public DonationsViewHolder(@NonNull View itemView) {
 
             super(itemView);
-            name = itemView.findViewById(R.id.name);
             image = itemView.findViewById(R.id.image);
-            site = itemView.findViewById(R.id.  site);
+            name = itemView.findViewById(R.id.name);
+            site = itemView.findViewById(R.id.site);
+            description = itemView.findViewById(R.id.description);
             likeBtn = itemView.findViewById(R.id.likeBtn);
         }
     }
@@ -126,19 +128,19 @@ public class DonationsListAdapter extends RecyclerView.Adapter<DonationsListAdap
     }
 
     public interface FragmentLikeListener {
-        void removeItemLike(Donations news);
+        void removeItemLike(Donations donations);
     }
 
     public int getItemViewType(int position) {
         return position;
     }
 
-    public void removeLike(Donations news) {
-        int n = Donations.donationsList.indexOf(news);
-        news.setHeart(false);
-        news.setLikeBtn(R.drawable.heart);
-        Donations.donationsList.set(n, news);
-        donationsList.set(n,news);
+    public void removeLike(Donations donations) {
+        int n = Donations.donationsList.indexOf(donations);
+        donations.setHeart(false);
+        donations.setLikeBtn(R.drawable.heart);
+        Donations.donationsList.set(n, donations);
+        donationsList.set(n,donations);
 
         this.notifyItemChanged(n);
     }

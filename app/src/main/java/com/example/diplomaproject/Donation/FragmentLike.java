@@ -53,12 +53,12 @@ public class FragmentLike extends Fragment {
     }
 
 
-    public void saveNews(Donations donations) {
+    public void saveDonations(Donations donations) {
         donationsList.add(donations);
         Objects.requireNonNull(recyclerView.getAdapter()).notifyItemInserted(donationsList.size() - 1);
     }
 
-    public void removeNews(Donations donations) {
+    public void removeDonations(Donations donations) {
         if (donationsList.indexOf(donations)==0){
             donationsList.remove(donations);
         } else {
@@ -69,7 +69,7 @@ public class FragmentLike extends Fragment {
     }
     public void removeLike(Donations donations){
         int n = donationsList.indexOf(donations);
-        this.removeNews(donations);
+        this.removeDonations(donations);
         adapter.notifyItemRemoved(n);
     }
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginSignup.SignUpSecond"
-    android:background="#C5E6E2"
+    android:background="#E3F4F4"
     android:padding="30dp">
 
     <LinearLayout

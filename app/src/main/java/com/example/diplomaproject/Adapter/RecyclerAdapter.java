@@ -39,6 +39,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
         holder.image.setImageResource(recyclerClass.getImage());
         holder.title.setText(recyclerClass.getTitle());
         holder.description.setText(recyclerClass.getDescription());
+        holder.author.setText(recyclerClass.getAuthor());
+
 
     }
 
@@ -50,7 +52,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
     public static class RecyclerViewHolder extends RecyclerView.ViewHolder{
 
         ImageView image;
-        TextView title, description;
+        TextView title, description, author;
 
         public RecyclerViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -60,6 +62,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
             image = itemView.findViewById(R.id.image_recycler_view_first);
             title = itemView.findViewById(R.id.text_recycler_view_first);
             description = itemView.findViewById(R.id.desc_recycler_view_first);
+            author = itemView.findViewById(R.id.author_recycler_view_first);
         }
     }
 }

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,9 +16,11 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.example.diplomaproject.Adapter.CategoryAdapter;
+import com.example.diplomaproject.Adapter.CategoryHelperClass;
 import com.example.diplomaproject.Adapter.RecyclerAdapter;
 import com.example.diplomaproject.Adapter.RecyclerClass;
-import com.example.diplomaproject.CategoryDonations;
+import com.example.diplomaproject.ClothesCategory.MainClothes;
 import com.example.diplomaproject.Database.SessionClassManager;
 import com.example.diplomaproject.Donation.MainCategory;
 import com.example.diplomaproject.LoginSignup.StartUpScreen;
@@ -27,7 +29,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class UserDashboard extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener{
 
@@ -36,7 +37,6 @@ public class UserDashboard extends AppCompatActivity implements  NavigationView.
     RecyclerView recyclerView, categoryView;
     RecyclerView.Adapter adapter;
 
-   // private GradientDrawable gradient1, gradient2, gradient3, gradient4;
     ImageView menuIcon;
     LinearLayout linearLayout;
 
@@ -202,9 +202,9 @@ public class UserDashboard extends AppCompatActivity implements  NavigationView.
 
         ArrayList<RecyclerClass> recyclerClasses = new ArrayList<>();
 
-        recyclerClasses.add(new RecyclerClass(R.drawable.recycler_view_first, "Help","A set of volunteer help situations. Volunteers at work. Helping people, animals and nature. Charity donation."));
-        recyclerClasses.add(new RecyclerClass(R.drawable.recycler_view_first, "Help","A set of volunteer help situations. Volunteers at work. Helping people, animals and nature. Charity donation."));
-        recyclerClasses.add(new RecyclerClass(R.drawable.recycler_view_first, "Help","A set of volunteer help situations. Volunteers at work. Helping people, animals and nature. Charity donation."));
+        recyclerClasses.add(new RecyclerClass(R.drawable.recycler_view_first, "Help","A set of volunteer help situations. Volunteers at work. Helping people, animals and nature. Charity donation.","Winston Churchill"));
+        recyclerClasses.add(new RecyclerClass(R.drawable.recycler_view_second, "Love","I love you not for who you are, but for who I am when I am with you.","Gabriel Garcia Marquez"));
+        recyclerClasses.add(new RecyclerClass(R.drawable.recycler_view_third, "Family","Feelings should develop into a family, and not into a lump in the throat that interferes with life.","Lina Keycher"));
 
         adapter = new RecyclerAdapter(recyclerClasses);
         recyclerView.setAdapter(adapter);
@@ -212,35 +212,19 @@ public class UserDashboard extends AppCompatActivity implements  NavigationView.
 
     }
 
-//    private void categoriesRecycler() {
-//        //All Gradients
-//        gradient2 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xffd4cbe5, 0xffd4cbe5});
-//        gradient1 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xff7adccf, 0xff7adccf});
-//        gradient3 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xfff7c59f, 0xFFf7c59f});
-//        gradient4 = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xffb8d7f5, 0xffb8d7f5});
-//
-//
-//        ArrayList<CategoryHelperClass> categoriesHelperClasses = new ArrayList<>();
-//        categoriesHelperClasses.add(new CategoryHelperClass(gradient1, R.drawable.food_cat, "Education"));
-//        categoriesHelperClasses.add(new CategoryHelperClass(gradient2, R.drawable.food_cat, "HOSPITAL"));
-//        categoriesHelperClasses.add(new CategoryHelperClass(gradient3, R.drawable.food_cat, "Restaurant"));
-//        categoriesHelperClasses.add(new CategoryHelperClass(gradient4, R.drawable.food_cat, "Shopping"));
-//        categoriesHelperClasses.add(new CategoryHelperClass(gradient1, R.drawable.food_cat, "Transport"));
-//
-//
-//        categoryView.setHasFixedSize(true);
-//        adapter = new CategoryAdapter(categoriesHelperClasses);
-//        categoryView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-//        categoryView.setAdapter(adapter);
-//
-//    }
-    public void viewDonationCategory(View view){
-        Intent intent =new Intent(getApplicationContext(), CategoryDonations.class);
-        startActivity(intent);
-    }
-
     public void goToCategories(View view){
         Intent intent = new Intent(getApplicationContext(), MainCategory.class);
         startActivity(intent);
+    }
+
+    public void ViewAllCategories(View view){
+        Intent intent = new Intent(getApplicationContext(), MainCategory.class);
+        startActivity(intent);
+    }
+
+    public void goToClothes(View view){
+        Intent intent = new Intent(getApplicationContext(), MainClothes.class);
+        startActivity(intent);
+
     }
 }

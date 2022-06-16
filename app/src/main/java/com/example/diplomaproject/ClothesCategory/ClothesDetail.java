@@ -1,12 +1,10 @@
-package com.example.diplomaproject.Donation;
+package com.example.diplomaproject.ClothesCategory;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Html;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -29,8 +27,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+public class ClothesDetail extends AppCompatActivity {
 
-public class DonationsDetailActivity extends AppCompatActivity {
     private ImageView likeBtn;
 
     private ImageView imageViewIntentResult;
@@ -45,7 +43,7 @@ public class DonationsDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_donations_detail);
+        setContentView(R.layout.activity_clothes_detail);
 
         imageViewIntentResult = findViewById(R.id.image);
         TextView name = findViewById(R.id.name);
@@ -59,14 +57,13 @@ public class DonationsDetailActivity extends AppCompatActivity {
         Button button = findViewById(R.id.button);
 
 
-        final Donations donations = getIntent().getParcelableExtra("donations");
+        final Clothes clothes = getIntent().getParcelableExtra("clothes");
 
-        Glide.with(this).load(donations.getImage()).into(imageViewIntentResult);
+        Glide.with(this).load(clothes.getImage()).into(imageViewIntentResult);
 
-        name.setText(donations.getName());
-        site.setText(donations.getSite());
-        description.setText(donations.getDescription());
-//        String s = "<b>" + donations.getName() + "</b>" + " " + donations.getSite();
+        name.setText(clothes.getName());
+        site.setText(clothes.getSite());
+        description.setText(clothes.getDescription());
         Boolean hearted = getIntent().getBooleanExtra("hearted", false);
 
         backBtn.setOnClickListener(view -> onBackPressed());
@@ -75,7 +72,7 @@ public class DonationsDetailActivity extends AppCompatActivity {
         likeBtn.setOnClickListener(v -> {
             Toast.makeText(v.getContext(), "Saved", Toast.LENGTH_SHORT).show();
 
-            if (donations.getLikeBtn()==R.drawable.heart) {
+            if (clothes.getLikeBtn()==R.drawable.heart) {
 
                 Glide.with(likeBtn.getContext()).load(R.drawable.hearted).into(likeBtn);
 
@@ -85,7 +82,6 @@ public class DonationsDetailActivity extends AppCompatActivity {
             }
 
         });
-
         PaymentConfiguration.init(this, PUBLIC_KEY);
         paymentSheet = new PaymentSheet(this, this::onPaymentRewult);
 
@@ -101,7 +97,7 @@ public class DonationsDetailActivity extends AppCompatActivity {
                     try {
                         JSONObject object = new JSONObject(response);
                         customerID = object.getString("id");
-                        Toast.makeText(DonationsDetailActivity.this, customerID, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ClothesDetail.this, customerID, Toast.LENGTH_SHORT).show();
 
                         getEphericalKey(customerID);
 
@@ -119,7 +115,7 @@ public class DonationsDetailActivity extends AppCompatActivity {
             }
         };
 
-        RequestQueue requestQueue = Volley.newRequestQueue(DonationsDetailActivity.this);
+        RequestQueue requestQueue = Volley.newRequestQueue(ClothesDetail.this);
         requestQueue.add(stringRequest);
     }
 
@@ -132,7 +128,7 @@ public class DonationsDetailActivity extends AppCompatActivity {
                     try {
                         JSONObject object = new JSONObject(response);
                         EphericalKey = object.getString("id");
-                        Toast.makeText(DonationsDetailActivity.this, EphericalKey, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ClothesDetail.this, EphericalKey, Toast.LENGTH_SHORT).show();
 
                         getClientSecret(customerID, EphericalKey);
 
@@ -161,7 +157,7 @@ public class DonationsDetailActivity extends AppCompatActivity {
             }
         };
 
-        RequestQueue requestQueue = Volley.newRequestQueue(DonationsDetailActivity.this);
+        RequestQueue requestQueue = Volley.newRequestQueue(ClothesDetail.this);
         requestQueue.add(stringRequest);
 
     }
@@ -176,7 +172,7 @@ public class DonationsDetailActivity extends AppCompatActivity {
                     try {
                         JSONObject object = new JSONObject(response);
                         ClientSecret = object.getString("client_secret");
-                        Toast.makeText(DonationsDetailActivity.this, ClientSecret, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ClothesDetail.this, ClientSecret, Toast.LENGTH_SHORT).show();
 
 //                            PaymentFlow();
 
@@ -206,7 +202,7 @@ public class DonationsDetailActivity extends AppCompatActivity {
             }
         };
 
-        RequestQueue requestQueue = Volley.newRequestQueue(DonationsDetailActivity.this);
+        RequestQueue requestQueue = Volley.newRequestQueue(ClothesDetail.this);
         requestQueue.add(stringRequest);
 
     }

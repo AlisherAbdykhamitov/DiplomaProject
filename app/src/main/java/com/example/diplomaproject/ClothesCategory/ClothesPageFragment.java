@@ -1,13 +1,11 @@
-package com.example.diplomaproject.Donation;
+package com.example.diplomaproject.ClothesCategory;
+
 import android.content.Intent;
 import android.os.Bundle;
 
-
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,52 +17,50 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class PageFragment extends Fragment {
-    private DonationsListAdapter adapter;
+public class ClothesPageFragment extends Fragment {
+
+    private ClothesListAdapter adapter;
     private RecyclerView recyclerView;
 
-    @Nullable
+
     @Override
-    public View onCreateView(@Nullable LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
         final View rootView = inflater.inflate(
-                R.layout.fragment_page, container, false);
-        recyclerView = rootView.findViewById(R.id.recyclerView);
+                R.layout.fragment_clothes_page, container, false);
+        recyclerView = rootView.findViewById(R.id.recyclerViewClothes);
         recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
 
-        DonationsListAdapter.ItemClickListener listener = (position, item) -> {
-            Intent intent = new Intent(rootView.getContext(), DonationsDetailActivity.class);
-            intent.putExtra("donations", item);
+        ClothesListAdapter.ItemClickListener listener = (position, item) -> {
+            Intent intent = new Intent(rootView.getContext(), ClothesDetail.class);
+            intent.putExtra("clothes", item);
             startActivity(intent);
         };
+        ClothesListAdapter.FragmentButtonListenerClothes fragmentButtonListener = (clothes, option) -> ((MainClothes) requireActivity()).myClick(clothes, option);
+
+        ClothesListAdapter.FragmentLikeListenerClothes fragmentLikeListenerClothes = clothes -> ((MainClothes) requireActivity()).removeItemLike(clothes);
 
 
-        DonationsListAdapter.FragmentButtonListener fragmentButtonListener = (donations, option) -> ((MainCategory) requireActivity()).myClick(donations, option);
-
-        DonationsListAdapter.FragmentLikeListener fragmentLikeListener = donations -> ((MainCategory) requireActivity()).removeItemLike(donations);
-
-
-        adapter = new DonationsListAdapter(donationsGenerator(), listener, fragmentButtonListener, fragmentLikeListener);
+        adapter = new ClothesListAdapter(clothesGenerator(), listener, fragmentButtonListener, fragmentLikeListenerClothes);
         recyclerView.setAdapter(adapter);
 
 
         return rootView;
+
     }
 
-
-    public void removeLike(Donations donations) {
-        adapter.removeLike(donations);
+    public void removeLike(Clothes clothes) {
+        adapter.removeLike(clothes);
     }
 
-
-    public static List<Donations>   donationsGenerator() {
-        List<Donations> items = new ArrayList<>();
+    public static List<Clothes> clothesGenerator() {
+        List<Clothes> items = new ArrayList<>();
 
         ArrayList<Integer> image = new ArrayList<>();
         ArrayList<String> name = new ArrayList<>();
         ArrayList<String> site = new ArrayList<>();
         ArrayList<String> description = new ArrayList<>();
-        //ArrayList<String> description = new ArrayList<>();
 
         image.add(R.drawable.sabi1);
         name.add("Saby Charitable Foundation\n");
@@ -113,16 +109,14 @@ public class PageFragment extends Fragment {
         description.add("");
 
 
-
-
         for (int i = 0; i < image.size(); i++) {
-            Donations donations = new Donations(
+            Clothes clothes = new Clothes(
                     image.get(i),
                     name.get(i),
                     site.get(i),
                     description.get(i)
             );
-            items.add(donations);
+            items.add(clothes);
         }
         return items;
     }

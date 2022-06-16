@@ -16,7 +16,7 @@ import com.example.diplomaproject.User.UserDashboard;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static int SPLASH_TIMER = 3000;
+    private static int SPLASH_TIMER = 2000;
 
     //Variables
     ImageView backgroundImage;

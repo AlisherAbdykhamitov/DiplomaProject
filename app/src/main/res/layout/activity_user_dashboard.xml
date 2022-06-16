@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:theme="@style/navigationTheme"
-        android:background="#F6F6A7"
+        android:background="#E3F4F4"
         app:headerLayout="@layout/menu_head"
         app:menu="@menu/main_menu"/>
 
@@ -22,25 +22,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-<!--        <FrameLayout-->
-<!--            android:id="@+id/fragment_container"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent" />-->
 
-<!--            <com.google.android.material.bottomnavigation.BottomNavigationView-->
-<!--                android:id="@+id/bottom_navigation"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                app:menu="@menu/bottom_menu_nav"-->
-<!--                android:background="@color/cat3"-->
-<!--                android:layout_alignParentBottom="true"/>-->
 
     <LinearLayout
         android:id="@+id/content_view_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#C5E6E2">
+        android:background="#E3F4F4">
 
 
 
@@ -79,9 +68,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:text="@string/app_name"
+                    android:text="Donation"
+                    android:fontFamily="@font/amaranth_bold"
                     android:textColor="@color/colorBackground"
-                    android:textSize="30dp" />
+                    android:textSize="32dp" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -128,7 +118,7 @@
                     <RelativeLayout
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:background="@drawable/cat_1"
+                        android:background="#F1D8D8"
                         android:elevation="4dp"
                         android:layout_margin="10dp"
                         >
@@ -137,7 +127,7 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_centerInParent="true"
-                            android:src="@drawable/cat1_icon" />
+                            android:src="@drawable/health1" />
 
 
                     </RelativeLayout>
@@ -146,7 +136,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
-                        android:text="Foods"
+                        android:text="Health"
                         android:gravity="center_horizontal"
                         android:textColor="@color/textBlack"/>
 
@@ -168,7 +158,8 @@
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:layout_centerInParent="true"
-                            android:src="@drawable/cat2_icon" />
+                            android:src="@drawable/cat2_icon"
+                            android:onClick="goToClothes"/>
 
 
                     </RelativeLayout>
@@ -209,7 +200,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
-                        android:text="Monet"
+                        android:text="Charities"
                         android:gravity="center_horizontal"
                         android:textColor="@color/textBlack"/>
 
@@ -240,7 +231,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
-                        android:text="Care"
+                        android:text="Others"
                         android:gravity="center_horizontal"
                         android:textColor="@color/textBlack"/>
 
@@ -254,7 +245,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:background="@color/banner_background">
+                android:background="#EDEDED">
 
                 <LinearLayout
                     android:id="@+id/help_background"
@@ -264,7 +255,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
-                    android:background="@color/banner2_background"
+                    android:background="#FFE69D"
                     android:orientation="vertical">
 
                     <TextView
@@ -294,7 +285,7 @@
                     android:layout_height="280dp"
                     android:layout_marginTop="10dp"
                     android:layout_toRightOf="@+id/help_background"
-                    android:background="@color/banner_background" />
+                    android:background="#FFFFFF" />
 
             </RelativeLayout>
 
@@ -306,116 +297,112 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:text="Charities"
-                    android:textAllCaps="true"
+                    android:layout_marginLeft="35dp"
+                    android:text="Recent requests"
                     android:textColor="@color/textBlack"
                     android:textSize="20dp" />
 
-                <Button
+                <TextView
                     android:id="@+id/button_category"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="20dp"
-                    android:onClick="viewDonationCategory"
-                    android:background="@color/colorAccent"
-                    android:text="View All" />
+                    android:layout_marginRight="35dp"
+                    android:text="View All"
+                    android:onClick="ViewAllCategories"/>
 
             </RelativeLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:padding="20dp">
-
-
             <LinearLayout
-                android:layout_width="152dp"
-                android:layout_height="208dp"
-                android:orientation="vertical"
-                android:layout_marginHorizontal="10dp"
-                android:background="@color/lightWhite">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:padding="35dp">
 
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+
+                <LinearLayout
+                    android:layout_width="152dp"
+                    android:layout_height="208dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="#FFFFFF"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="152dp"
-                        android:layout_height="122dp"
-                        android:src="@drawable/ukrainefund">
-                    </ImageView>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-                </RelativeLayout>
+                        <ImageView
+                            android:layout_width="152dp"
+                            android:layout_height="122dp"
+                            android:src="@drawable/ukrainefund" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Ukraine Crisis Relief Fund"
-                    android:textAlignment="center"
-                    android:textColor="@color/textBlack"
-                    android:textSize="16dp">
-                </TextView>
-                <Button
-                    android:layout_width="84dp"
-                    android:layout_height="29dp"
-                    android:text="Donate"
-                    android:textSize="14dp"
-                    android:textColor="@color/lightWhite"
-                    android:layout_marginLeft="56dp"
-                    android:background="#03A9F4">
-                </Button>
+                    </RelativeLayout>
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/roboto"
+                        android:text="Ukraine Crisis Relief Fund"
+                        android:layout_marginLeft="5dp"
+                        android:textColor="@color/textBlack"
+                        android:textSize="16dp" />
+
+                    <Button
+                        android:layout_width="84dp"
+                        android:layout_height="29dp"
+                        android:layout_marginStart="56dp"
+                        android:background="#03A9F4"
+                        android:text="Donate"
+                        android:textColor="@color/lightWhite"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="152dp"
+                    android:layout_height="208dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="#FFFFFF"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="152dp"
+                            android:layout_height="122dp"
+                            android:src="@drawable/madagascarfund" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Madagascar Famine Relief Fund"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/roboto"
+                        android:textColor="@color/textBlack"
+                        android:textSize="14sp" />
+
+                    <Button
+                        android:layout_width="84dp"
+                        android:layout_height="29dp"
+                        android:layout_marginStart="56dp"
+                        android:background="#03A9F4"
+                        android:text="Donate"
+                        android:textColor="@color/lightWhite"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="152dp"-->
-<!--                android:layout_height="208dp"-->
-<!--                android:orientation="vertical"-->
-<!--                android:layout_marginHorizontal="10dp"-->
-<!--                android:background="@color/lightWhite"-->
-<!--                >-->
-
-<!--                <RelativeLayout-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="vertical">-->
-
-<!--                    <ImageView-->
-<!--                        android:layout_width="152dp"-->
-<!--                        android:layout_height="122dp"-->
-<!--                        android:src="@drawable/madagascarfund"></ImageView>-->
-
-<!--                </RelativeLayout>-->
-
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginTop="10dp"-->
-<!--                    android:text="Madagascar Famine Relief Fund"-->
-<!--                    android:textAlignment="center"-->
-<!--                    android:textColor="@color/textBlack"-->
-<!--                    android:textSize="16dp">-->
-<!--                </TextView>-->
-<!--                <Button-->
-<!--                    android:layout_width="84dp"-->
-<!--                    android:layout_height="29dp"-->
-<!--                    android:text="Donate"-->
-<!--                    android:textSize="14dp"-->
-<!--                    android:textColor="@color/lightWhite"-->
-<!--                    android:layout_marginLeft="56dp"-->
-<!--                    android:background="#03A9F4">-->
-<!--                </Button>-->
-
-<!--            </LinearLayout>-->
 
         </LinearLayout>
 

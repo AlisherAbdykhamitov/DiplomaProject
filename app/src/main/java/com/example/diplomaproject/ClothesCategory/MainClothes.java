@@ -1,47 +1,46 @@
-package com.example.diplomaproject.Donation;
-
-
+package com.example.diplomaproject.ClothesCategory;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-
-import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.diplomaproject.Donation.CustomPagerAdapter;
+import com.example.diplomaproject.Donation.Donations;
+import com.example.diplomaproject.Donation.DonationsListAdapter;
+import com.example.diplomaproject.Donation.FragmentLike;
+import com.example.diplomaproject.Donation.LikedListAdapter;
+import com.example.diplomaproject.Donation.LockableViewPager;
+import com.example.diplomaproject.Donation.PageFragment;
 import com.example.diplomaproject.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 
 import java.util.ArrayList;
 import java.util.List;
 
+public class MainClothes extends AppCompatActivity implements ClothesListAdapter.FragmentButtonListenerClothes,
+        ClothesLikedListAdapter.FragmentLikeListener {
 
-public class MainCategory extends AppCompatActivity implements DonationsListAdapter.FragmentButtonListener,
-        LikedListAdapter.FragmentLikeListener{
-    LockableViewPager  pager;
+    LockableViewPager pager;
     private MenuItem prevMenuItem;
     private BottomNavigationView bottomNavigationView;
     List<Fragment> list = new ArrayList<>();
 
-    PageFragment pagefragment = new PageFragment();
-    FragmentLike fragment = new FragmentLike();
-
-
+    ClothesPageFragment pagefragment = new ClothesPageFragment();
+    FragmentLikeClothes fragment = new FragmentLikeClothes();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_category);
-
+        setContentView(R.layout.activity_main_clothes);
 
         list.add(pagefragment);//добавляем фрагмент
         list.add(fragment);
         pager = findViewById(R.id.pager);
         pager.setSwipable(true);
-        CustomPagerAdapter pagerAdapter = new CustomPagerAdapter(getSupportFragmentManager(), list);
+        CustomPagerAdapterClothes pagerAdapter = new CustomPagerAdapterClothes(getSupportFragmentManager(), list);
         pager.setAdapter(pagerAdapter);
 
         bottomNavigationView=findViewById(R.id.bottom_navigation);
@@ -63,7 +62,6 @@ public class MainCategory extends AppCompatActivity implements DonationsListAdap
 
             return true;
         });
-
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -86,27 +84,20 @@ public class MainCategory extends AppCompatActivity implements DonationsListAdap
 
             }
         });
-
-
-
-
     }
+
     @Override
-    public void myClick(Donations donations, int option) {
+    public void myClick(Clothes clothes, int option) {
 
         if (option==1)
-            fragment.saveDonations(donations);
+            fragment.saveClothes(clothes);
         else
-            fragment.removeDonations(donations);
+            fragment.removeClothes(clothes);
     }
 
 
-    public void removeItemLike(Donations donations) {
-        pagefragment.removeLike(donations);
-        fragment.removeLike(donations);
+    public void removeItemLike(Clothes clothes) {
+        pagefragment.removeLike(clothes);
+        fragment.removeLike(clothes);
     }
 }
-
-
-
-

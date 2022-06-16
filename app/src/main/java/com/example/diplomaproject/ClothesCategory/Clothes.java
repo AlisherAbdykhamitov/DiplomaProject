@@ -1,4 +1,4 @@
-package com.example.diplomaproject.Donation;
+package com.example.diplomaproject.ClothesCategory;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -9,9 +9,9 @@ import com.example.diplomaproject.R;
 
 import java.util.List;
 
-public class Donations implements Parcelable{
+public class Clothes implements Parcelable{
 
-    public static List<Donations> donationsList;
+    public static List<com.example.diplomaproject.ClothesCategory.Clothes> clothesList;
     private int image;
     private String name;
     private String site;
@@ -32,7 +32,7 @@ public class Donations implements Parcelable{
 
 
 
-    public Donations(int image, String name,  String site, String description) {
+    public Clothes(int image, String name,  String site, String description) {
         this.image = image;
         this.name = name;
         this.site = site;
@@ -42,22 +42,22 @@ public class Donations implements Parcelable{
 
 
 
-    protected Donations(Parcel in) {
+    protected Clothes(Parcel in) {
         image = in.readInt();
         name = in.readString();
         site = in.readString();
         description = in.readString();
     }
 
-    public static final Creator<Donations> CREATOR = new Creator<Donations>() {
+    public static final Creator<com.example.diplomaproject.ClothesCategory.Clothes> CREATOR = new Creator<com.example.diplomaproject.ClothesCategory.Clothes>() {
         @Override
-        public Donations createFromParcel(Parcel in) {
-            return new Donations(in);
+        public com.example.diplomaproject.ClothesCategory.Clothes createFromParcel(Parcel in) {
+            return new com.example.diplomaproject.ClothesCategory.Clothes(in);
         }
 
         @Override
-        public Donations[] newArray(int size) {
-            return new Donations[size];
+        public com.example.diplomaproject.ClothesCategory.Clothes[] newArray(int size) {
+            return new com.example.diplomaproject.ClothesCategory.Clothes[size];
         }
     };
 
@@ -101,7 +101,7 @@ public class Donations implements Parcelable{
     @NonNull
     @Override
     public String toString() {
-        return "Donations{" + "name='" + name + '\'' +", image='" + image + '\'' +", site='" + site + '\'' +'}';
+        return "Clothes{" + "name='" + name + '\'' +", image='" + image + '\'' +", site='" + site + '\'' +'}';
     }
 
 

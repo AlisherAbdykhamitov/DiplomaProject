@@ -120,6 +120,9 @@ public class UserProfile extends AppCompatActivity {
     public void logOutFromUserSession(View view){
         SessionClassManager sessionClassManager = new SessionClassManager(this);
         sessionClassManager.logoutUserFormSession();
+        Intent intent = new Intent(getApplicationContext(), UserDashboard.class);
+        startActivity(intent);
+        finish();
     }
 
 }
