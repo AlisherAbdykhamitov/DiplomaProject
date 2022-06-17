@@ -84,6 +84,7 @@
             android:layout_marginTop="52dp"
             android:background="#03A9F4"
             android:text="Donate"
+            android:visibility="invisible"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/image"
             app:layout_constraintEnd_toEndOf="parent"

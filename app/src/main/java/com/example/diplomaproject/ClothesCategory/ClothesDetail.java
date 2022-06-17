@@ -82,147 +82,147 @@ public class ClothesDetail extends AppCompatActivity {
             }
 
         });
-        PaymentConfiguration.init(this, PUBLIC_KEY);
-        paymentSheet = new PaymentSheet(this, this::onPaymentRewult);
-
-        button.setOnClickListener(view -> PaymentFlow());
-
-
+//        PaymentConfiguration.init(this, PUBLIC_KEY);
+//        paymentSheet = new PaymentSheet(this, this::onPaymentRewult);
+//
+//        button.setOnClickListener(view -> PaymentFlow());
 
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST,
-                "https://api.stripe.com/v1/customers",
-                response -> {
 
-                    try {
-                        JSONObject object = new JSONObject(response);
-                        customerID = object.getString("id");
-                        Toast.makeText(ClothesDetail.this, customerID, Toast.LENGTH_SHORT).show();
 
-                        getEphericalKey(customerID);
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }, error -> {
-
-        }){
-            @Override
-            public Map<String, String> getHeaders() {
-                Map<String, String> header = new HashMap<>();
-                header.put("Authorization", "Bearer " + SECRET_KEY);
-                return header;
-            }
-        };
-
-        RequestQueue requestQueue = Volley.newRequestQueue(ClothesDetail.this);
-        requestQueue.add(stringRequest);
+//        StringRequest stringRequest = new StringRequest(Request.Method.POST,
+//                "https://api.stripe.com/v1/customers",
+//                response -> {
+//
+//                    try {
+//                        JSONObject object = new JSONObject(response);
+//                        customerID = object.getString("id");
+//                        Toast.makeText(ClothesDetail.this, customerID, Toast.LENGTH_SHORT).show();
+//
+//                        getEphericalKey(customerID);
+//
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                    }
+//                }, error -> {
+//
+//        }){
+//            @Override
+//            public Map<String, String> getHeaders() {
+//                Map<String, String> header = new HashMap<>();
+//                header.put("Authorization", "Bearer " + SECRET_KEY);
+//                return header;
+//            }
+//        };
+//
+//        RequestQueue requestQueue = Volley.newRequestQueue(ClothesDetail.this);
+//        requestQueue.add(stringRequest);
     }
 
-    private void getEphericalKey(String customerID){
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST,
-                "https://api.stripe.com/v1/ephemeral_keys",
-                response -> {
-
-                    try {
-                        JSONObject object = new JSONObject(response);
-                        EphericalKey = object.getString("id");
-                        Toast.makeText(ClothesDetail.this, EphericalKey, Toast.LENGTH_SHORT).show();
-
-                        getClientSecret(customerID, EphericalKey);
-
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-
-                }, error -> {
-
-        }){
-            @Override
-            public Map<String, String> getHeaders() {
-                Map<String, String> header = new HashMap<>();
-                header.put("Authorization", "Bearer " + SECRET_KEY);
-                header.put("Stripe-Version", "2020-08-27");
-                return header;
-            }
-
-            @NonNull
-            @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> parametrs = new HashMap<>();
-                parametrs.put("customer", customerID);
-                return parametrs;
-            }
-        };
-
-        RequestQueue requestQueue = Volley.newRequestQueue(ClothesDetail.this);
-        requestQueue.add(stringRequest);
-
-    }
-
-
-    private void getClientSecret(String customerID, String ephericalKey){
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST,
-                "https://api.stripe.com/v1/payment_intents",
-                response -> {
-
-                    try {
-                        JSONObject object = new JSONObject(response);
-                        ClientSecret = object.getString("client_secret");
-                        Toast.makeText(ClothesDetail.this, ClientSecret, Toast.LENGTH_SHORT).show();
-
-//                            PaymentFlow();
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-
-                }, error -> {
-
-        }){
-            @Override
-            public Map<String, String> getHeaders() {
-                Map<String, String> header = new HashMap<>();
-                header.put("Authorization", "Bearer " + SECRET_KEY);
-                return header;
-            }
-
-            @NonNull
-            @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<>();
-                params.put("customer", customerID);
-                params.put("amount", "1000" + "00");
-                params.put("currency", "usd");
-                params.put("automatic_payment_methods[enabled]", "true");
-                return params;
-            }
-        };
-
-        RequestQueue requestQueue = Volley.newRequestQueue(ClothesDetail.this);
-        requestQueue.add(stringRequest);
-
-    }
-
-    private void PaymentFlow(){
-
-        paymentSheet.presentWithPaymentIntent(
-                ClientSecret, new PaymentSheet.Configuration("ABC Company"
-                        ,new PaymentSheet.CustomerConfiguration(
-                        customerID,
-                        EphericalKey
-                ))
-        );
-    }
-
-    private void onPaymentRewult(PaymentSheetResult paymentSheetResult){
-        if(paymentSheetResult instanceof PaymentSheetResult.Completed){
-            Toast.makeText(this, "payment success", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(getApplicationContext(), UserDashboard.class);
-            startActivity(intent);
-        }
-    }
+//    private void getEphericalKey(String customerID){
+//
+//        StringRequest stringRequest = new StringRequest(Request.Method.POST,
+//                "https://api.stripe.com/v1/ephemeral_keys",
+//                response -> {
+//
+//                    try {
+//                        JSONObject object = new JSONObject(response);
+//                        EphericalKey = object.getString("id");
+//                        Toast.makeText(ClothesDetail.this, EphericalKey, Toast.LENGTH_SHORT).show();
+//
+//                        getClientSecret(customerID, EphericalKey);
+//
+//
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                    }
+//
+//                }, error -> {
+//
+//        }){
+//            @Override
+//            public Map<String, String> getHeaders() {
+//                Map<String, String> header = new HashMap<>();
+//                header.put("Authorization", "Bearer " + SECRET_KEY);
+//                header.put("Stripe-Version", "2020-08-27");
+//                return header;
+//            }
+//
+//            @NonNull
+//            @Override
+//            protected Map<String, String> getParams() {
+//                Map<String, String> parametrs = new HashMap<>();
+//                parametrs.put("customer", customerID);
+//                return parametrs;
+//            }
+//        };
+//
+//        RequestQueue requestQueue = Volley.newRequestQueue(ClothesDetail.this);
+//        requestQueue.add(stringRequest);
+//
+//    }
+//
+//
+//    private void getClientSecret(String customerID, String ephericalKey){
+//
+//        StringRequest stringRequest = new StringRequest(Request.Method.POST,
+//                "https://api.stripe.com/v1/payment_intents",
+//                response -> {
+//
+//                    try {
+//                        JSONObject object = new JSONObject(response);
+//                        ClientSecret = object.getString("client_secret");
+//                        Toast.makeText(ClothesDetail.this, ClientSecret, Toast.LENGTH_SHORT).show();
+//
+////                            PaymentFlow();
+//
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                    }
+//
+//                }, error -> {
+//
+//        }){
+//            @Override
+//            public Map<String, String> getHeaders() {
+//                Map<String, String> header = new HashMap<>();
+//                header.put("Authorization", "Bearer " + SECRET_KEY);
+//                return header;
+//            }
+//
+//            @NonNull
+//            @Override
+//            protected Map<String, String> getParams() {
+//                Map<String, String> params = new HashMap<>();
+//                params.put("customer", customerID);
+//                params.put("amount", "1000" + "00");
+//                params.put("currency", "usd");
+//                params.put("automatic_payment_methods[enabled]", "true");
+//                return params;
+//            }
+//        };
+//
+//        RequestQueue requestQueue = Volley.newRequestQueue(ClothesDetail.this);
+//        requestQueue.add(stringRequest);
+//
+//    }
+//
+//    private void PaymentFlow(){
+//
+//        paymentSheet.presentWithPaymentIntent(
+//                ClientSecret, new PaymentSheet.Configuration("ABC Company"
+//                        ,new PaymentSheet.CustomerConfiguration(
+//                        customerID,
+//                        EphericalKey
+//                ))
+//        );
+//    }
+//
+//    private void onPaymentRewult(PaymentSheetResult paymentSheetResult){
+//        if(paymentSheetResult instanceof PaymentSheetResult.Completed){
+//            Toast.makeText(this, "payment success", Toast.LENGTH_SHORT).show();
+//            Intent intent = new Intent(getApplicationContext(), UserDashboard.class);
+//            startActivity(intent);
+//        }
+//    }
 }

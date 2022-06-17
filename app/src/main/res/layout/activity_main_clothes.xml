@@ -29,12 +29,12 @@
             android:layout_alignParentBottom="true"
             android:layout_gravity="bottom"
             android:background="#6A8E8E"
-            app:menu="@menu/menu_bn"
+            app:menu="@menu/menu_clothes"
             app:itemIconTint="#E3F4F4"
             app:itemTextColor="#E3F4F4"/>
 
 
-        <com.example.diplomaproject.Donation.LockableViewPager
+        <com.example.diplomaproject.ClothesCategory.LockableViewPagerClothes
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/pager"/>

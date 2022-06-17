@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".Donation.DonationsDetailActivity">
+    tools:context=".ClothesCategory.ClothesDetail">
 
     <Button
         android:id="@+id/backBtn"
@@ -127,7 +127,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_semibold"
-                android:text="$50,000"
+                android:text="10,532 people"
                 android:textColor="@color/textBlack"
                 android:textSize="18sp"
                 android:textStyle="normal"
@@ -141,12 +141,10 @@
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="15dp"
                 android:fontFamily="sans-serif"
-                android:gravity="center"
                 android:singleLine="false"
                 android:text="Description"
-                android:textAlignment="center"
                 android:textColor="#27272E"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textStyle="normal"
                 app:layout_constraintTop_toBottomOf="@+id/avatars"
                 tools:ignore="MissingConstraints"
@@ -163,11 +161,13 @@
                 android:text="Donate now"
                 android:fontFamily="@font/poppins_semibold"
                 android:textAlignment="center"
+                android:visibility="invisible"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="@id/description"
                 app:layout_constraintTop_toBottomOf="@+id/description"
                 tools:ignore="MissingConstraints" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

@@ -7,13 +7,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.diplomaproject.Donation.CustomPagerAdapter;
-import com.example.diplomaproject.Donation.Donations;
-import com.example.diplomaproject.Donation.DonationsListAdapter;
-import com.example.diplomaproject.Donation.FragmentLike;
-import com.example.diplomaproject.Donation.LikedListAdapter;
-import com.example.diplomaproject.Donation.LockableViewPager;
-import com.example.diplomaproject.Donation.PageFragment;
+
 import com.example.diplomaproject.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -23,7 +17,7 @@ import java.util.List;
 public class MainClothes extends AppCompatActivity implements ClothesListAdapter.FragmentButtonListenerClothes,
         ClothesLikedListAdapter.FragmentLikeListener {
 
-    LockableViewPager pager;
+    LockableViewPagerClothes pager;
     private MenuItem prevMenuItem;
     private BottomNavigationView bottomNavigationView;
     List<Fragment> list = new ArrayList<>();

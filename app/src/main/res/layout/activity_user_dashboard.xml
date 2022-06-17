@@ -118,8 +118,7 @@
                     <RelativeLayout
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:background="#F1D8D8"
-                        android:elevation="4dp"
+                        android:background="#E3F4F4"
                         android:layout_margin="10dp"
                         >
 
@@ -127,7 +126,7 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_centerInParent="true"
-                            android:src="@drawable/health1" />
+                            android:src="@drawable/healthya" />
 
 
                     </RelativeLayout>
@@ -150,16 +149,15 @@
                     <RelativeLayout
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:background="@drawable/cat_2"
-                        android:elevation="4dp"
+                        android:background="#E3F4F4"
                         android:layout_margin="10dp">
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
                             android:layout_centerInParent="true"
-                            android:src="@drawable/cat2_icon"
-                            android:onClick="goToClothes"/>
+                            android:onClick="goToClothes"
+                            android:src="@drawable/clothes" />
 
 
                     </RelativeLayout>
@@ -182,8 +180,7 @@
                     <RelativeLayout
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:background="@drawable/cat_3"
-                        android:elevation="4dp"
+                        android:background="#E3F4F4"
                         android:layout_margin="10dp">
 
                         <ImageView
@@ -191,7 +188,7 @@
                             android:layout_height="50dp"
                             android:layout_centerInParent="true"
                             android:onClick="goToCategories"
-                            android:src="@drawable/cat3_icon" />
+                            android:src="@drawable/charities" />
 
 
                     </RelativeLayout>
@@ -214,15 +211,15 @@
                     <RelativeLayout
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:background="@drawable/cat_4"
-                        android:elevation="4dp"
+                        android:background="#E3F4F4"
+
                         android:layout_margin="10dp">
 
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_centerInParent="true"
-                            android:src="@drawable/cat4_icon" />
+                            android:src="@drawable/others" />
 
 
                     </RelativeLayout>

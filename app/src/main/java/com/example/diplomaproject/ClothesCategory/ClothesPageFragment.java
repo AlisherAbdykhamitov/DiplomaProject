@@ -10,8 +10,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.diplomaproject.R;
+import com.example.diplomaproject.User.UserDashboard;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +33,8 @@ public class ClothesPageFragment extends Fragment {
                 R.layout.fragment_clothes_page, container, false);
         recyclerView = rootView.findViewById(R.id.recyclerViewClothes);
         recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
-
+        ImageView backBtn = rootView.findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(view -> onBackPressed());
         ClothesListAdapter.ItemClickListener listener = (position, item) -> {
             Intent intent = new Intent(rootView.getContext(), ClothesDetail.class);
             intent.putExtra("clothes", item);
@@ -50,6 +53,11 @@ public class ClothesPageFragment extends Fragment {
 
     }
 
+    private void onBackPressed() {
+        Intent intent = new Intent(getContext(), UserDashboard.class);
+        startActivity(intent);
+    }
+
     public void removeLike(Clothes clothes) {
         adapter.removeLike(clothes);
     }
@@ -62,47 +70,33 @@ public class ClothesPageFragment extends Fragment {
         ArrayList<String> site = new ArrayList<>();
         ArrayList<String> description = new ArrayList<>();
 
-        image.add(R.drawable.sabi1);
-        name.add("Saby Charitable Foundation\n");
-        site.add("By saby.kz\n");
-        description.add("The Mission of Saby Foundation is to enhance the understanding by the general public of charitable activities, and to make philanthropy effective for charity recipients and attractive for sponsors. \n" +
-                "\n" +
-                "Programs of Foundation:\n" +
-                " \n" +
-                "Ecological program \n" +
-                "Project \"School-Gymnasium No. 174. Coaching\" \n" +
-                "Building project Orkendeu\n" +
-                "Sport-Health-Achievements\n" +
-                "Education program\n" +
-                "Medical Project\n");
+        image.add(R.drawable.sarai);
+        name.add("Sarai: Donate your clothes\n");
+        site.add("By sarai.kz\n");
+        description.add("SARAI will help you unload unnecessary things cluttering up your house for free. All this is given a second life for secondary consumption. Items are accepted without marriage in working order. If you have not accumulated unnecessary luggage, you can team up with neighbors and call the service all together, or personally take them to the reception point.");
 
-        image.add(R.drawable.sh1);
-        name.add("Shugyla Charitable Foundation");
-        site.add("By shugyla.kz");
-        description.add("Organzization goals:\n" +
+        image.add(R.drawable.teplo);
+        name.add("Share the Warmth “Teplo”  ");
+        site.add("By teplo.kz");
+        description.add("The TEPLO social and charitable project was founded in January 2017. During the work of the project, clothes were collected for 500 thousand people.\n" +
                 "\n" +
-                "contribution to the formation of a conscious and healthy lifestyle of society, especially young people\n" +
-                "implementation of socially significant projects\n" +
-                "organization and holding of events aimed at charity\n" +
-                " \n" +
-                "Organization tasks includes conducting on-site preventive medical examinations of the rural population in order to detect diseases at an early stage and prevent their development. ");
+                "You can leave things in boxes specially installed around the city, after which they will be sent to low-income families, orphanages and social assistance centers. Items that prove unwearable will be used to insulate animal shelters during the winter.");
 
         image.add(R.drawable.dara2);
-        name.add("\"Dara\"Charitable Foundation ");
+        name.add("Donate your clothes to \"Dar\"  Foundation ");
         site.add("By of dara.kz");
         description.add("The main goal of the fund is to help children in difficult situations, such as orphans, children left without parental care, large families, children with disabilities, as well as children in need of treatment.\n" +
                 "During the operation of the fund, more than a dozen shares of promotions have been implemented.");
 
-        image.add(R.drawable.car12);
-        name.add("Caritas Charitable Organization");
+        image.add(R.drawable.ccccc);
+        name.add("Charity shop in \"Keremet\"");
         site.add("By Caritas.org");
         description.add("Caritas Kazakhstan was founded in 1997 in response to the rise of poverty after the collapse of the Soviet Union. Its initiatives included soup kitchens across the country, orphanages and centers for homeless people. Caritas Kazakhstan’s head office is located in Almaty; it unites 4 Dioceses with their respective regional organizations.");
 
-        image.add(R.drawable.ukra);
-        name.add("Ukraine Crisis Relief Fund");
-        site.add("By Global.org");
-        description.add("Russia has invaded Ukraine in the biggest state-against-state attack since World War II. Millions of civilians are caught in the middle of an escalating war and humanitarian crisis, and casualties are rising. Your donation to this fund will support Ukrainians in need, with a focus on the most vulnerable, including children.");
-
+        image.add(R.drawable.clothes_);
+        name.add("Second wind");
+        site.add("By vtoroe.ru/");
+        description.add("More than two million tons of clothes and textile waste are thrown away in Russia every year. Clothing takes up to 200 years to decompose, and in the process releases methane, pollutes soil and groundwater, and increases landfill volume. At the same time, 15% of Russian families cannot afford to buy clothes.");
         image.add(R.drawable.below);
         name.add("");
         site.add("");

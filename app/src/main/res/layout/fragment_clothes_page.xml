@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Donation.MainCategory"
+    tools:context=".ClothesCategory.MainClothes"
     android:background="#E3F4F4"
     android:id="@+id/fragment_page"
     android:orientation="vertical">
@@ -14,57 +14,78 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize">
-
+            android:layout_height="match_parent">
             <ImageView
+                android:id="@+id/backBtn"
                 android:layout_width="50dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
                 android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
                 android:padding="15dp"
                 android:src="@drawable/back_icon1" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:padding="10dp"
+                        android:text="Category"
+                        android:textAlignment="center"
+                        android:textColor="@color/textBlack"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Clothes"
+                        android:textAlignment="center"
+                        android:textColor="@color/textBlack"
+                        android:textSize="28sp" />
+                </LinearLayout>
+
+            </LinearLayout>
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="350dp"
-            android:layout_height="match_parent"
+            android:layout_width="370dp"
+            android:layout_height="45dp"
             android:layout_marginLeft="20dp"
-            android:background="@color/white"
-            >
+            android:background="@drawable/border"
+            android:layout_marginBottom="15dp">
 
             <EditText
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
+                android:background="#00000000"
                 android:hint="Search..."
                 android:inputType="textVisiblePassword"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:textColor="#636773" />
 
             <ImageView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="280dp"
                 android:padding="15dp"
                 android:src="@drawable/search_icon" />
         </RelativeLayout>
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="charitable foundations"
-            android:textAlignment="center"
-            android:fontFamily="@font/roboto"
-            android:textAllCaps="true"
-            android:textColor="@color/textBlack"
-            android:textSize="20sp"
-            android:layout_gravity="center"/>
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewClothes"
             android:layout_width="match_parent"
@@ -73,7 +94,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:listitem="@layout/donation_items" />
+            tools:listitem="@layout/clothes_items" />
 
     </LinearLayout>
 </ScrollView>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Donation.PaymentActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="25sp"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:id="@+id/back_payment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/login_back"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Payment"
+            android:layout_gravity="center"
+            android:fontFamily="@font/roboto"
+            android:textSize="15dp"
+            android:textColor="@color/textBlack"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Saby Charitable Foundation"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/textBlack"
+            android:fontFamily="@font/roboto"
+            android:textSize="20dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:text="By Saby.kz"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Choose Amount"
+            android:textColor="@color/textBlack"
+            android:textSize="20dp"
+            android:fontFamily="@font/roboto"
+            android:layout_marginTop="30dp"/>
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:text="$1"
+                android:gravity="center"
+                android:background="@drawable/border"
+                android:layout_marginTop="50dp" />
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:text="$5"
+                android:gravity="center"
+                android:background="@drawable/border"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="30dp"/>
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:text="$7"
+                android:gravity="center"
+                android:background="@drawable/border"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="30dp"/>
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="-------------------- OR -------------------- "
+            android:gravity="center"
+            android:layout_marginTop="50dp"
+            android:textSize="20dp"/>
+
+
+        <EditText
+            android:id="@+id/donate_button"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:background="@drawable/border"
+            android:hint="Enter Price Manually"
+            android:gravity="center"
+            android:textColorHint="#2758B9"
+            android:layout_marginTop="50dp"
+            />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="#03A9F4"
+            android:layout_gravity="center"
+            android:text="Donate now"
+            android:fontFamily="@font/poppins_semibold"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_marginTop="30dp"  />
+
+    </LinearLayout>
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

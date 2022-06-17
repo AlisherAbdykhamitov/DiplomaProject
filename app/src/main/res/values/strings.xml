@@ -24,7 +24,8 @@
 
     <string name="home">HOME</string>
     <string name="saved">LIKED</string>
-    <string name="categroy">CATEGORIES</string>
+    <string name="categroy">CHARITIES</string>
+    <string name="clothes">CLOTHES</string>
     <string name="profile">PROFILE</string>
     <string name="logout">Log out</string>
 

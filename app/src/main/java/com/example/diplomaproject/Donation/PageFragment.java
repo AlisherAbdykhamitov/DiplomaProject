@@ -12,8 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.diplomaproject.R;
+import com.example.diplomaproject.User.UserDashboard;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,12 +33,19 @@ public class PageFragment extends Fragment {
                 R.layout.fragment_page, container, false);
         recyclerView = rootView.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
+        ImageView backBtn = rootView.findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(view -> onBackPressed());
+
+
 
         DonationsListAdapter.ItemClickListener listener = (position, item) -> {
             Intent intent = new Intent(rootView.getContext(), DonationsDetailActivity.class);
             intent.putExtra("donations", item);
             startActivity(intent);
         };
+
+
+
 
 
         DonationsListAdapter.FragmentButtonListener fragmentButtonListener = (donations, option) -> ((MainCategory) requireActivity()).myClick(donations, option);
@@ -52,6 +61,10 @@ public class PageFragment extends Fragment {
     }
 
 
+    private void onBackPressed() {
+        Intent intent = new Intent(getContext(), UserDashboard.class);
+        startActivity(intent);
+    }
     public void removeLike(Donations donations) {
         adapter.removeLike(donations);
     }

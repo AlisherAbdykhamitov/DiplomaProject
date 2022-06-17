@@ -189,6 +189,10 @@ public class UserDashboard extends AppCompatActivity implements  NavigationView.
                 Intent intent3 = new Intent(getApplicationContext(), MainCategory.class);
                 startActivity(intent3);
                 break;
+            case R.id.nav_clothes:
+                Intent intent5 = new Intent(getApplicationContext(), MainClothes.class);
+                startActivity(intent5);
+                break;
 
         }
 
